@@ -43,16 +43,20 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private bool m_Jumping;
         private AudioSource m_AudioSource;
 
+
+		//private bool touch;
+		//private bool collisionCounter;
+
+		//User Interface
 		public Slider waterBarSlider;
 		private float waterValue;
-		private bool touch;
-		private bool collisionCounter;
 		private int hinduCount;
 		public Text hinduAmount;
 		private int stoneCount;
 		public Text stoneAmount;
 		private float waterFillingSpeed;
 
+		//RoomBetween door closing and opening animation
 		private Animator anim;
 		private Animator doorNewAnim;
 		private Animator doorOldAnim;
@@ -77,24 +81,26 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_Jumping = false;
             m_AudioSource = GetComponent<AudioSource>();
 			m_MouseLook.Init(transform , m_Camera.transform);
+
+			//Entry Collider
+			//touch = true;
+			//collisionCounter = true;
+
+			//User Interface
 			waterValue = 0f;
 			waterBarSlider.value = waterValue;
-			touch = true;
-			collisionCounter = true;
 			hinduCount = 0;
 			hinduAmount.text = hinduCount.ToString();
 			stoneCount = 0;
 			stoneAmount.text = stoneCount.ToString();
 			waterFillingSpeed = .001f;
 
+			//RoomBetween door closing and opening animation
 			anim = GetComponent<Animator> ();
-
 			newDoor = GameObject.FindWithTag("door");
 			doorNewAnim = newDoor.GetComponent<Animator> ();
-
 			oldDoor = GameObject.FindWithTag ("oldDoor");
 			doorOldAnim = oldDoor.GetComponent<Animator> ();
-
 			lever = false;
 
 
@@ -132,21 +138,19 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
 			waterBarSlider.value = waterValue;
 
-			if (Input.GetKeyDown (KeyCode.Q))
+			if (Input.GetKeyDown (KeyCode.Q) && hinduCount > 0)
 			{
-				hinduCount -= 1;
-				hinduAmount.text = hinduCount.ToString();
-				waterFillingSpeed *= 0.75f;
+					hinduCount -= 1;
+					hinduAmount.text = hinduCount.ToString();
+					waterFillingSpeed *= 0.75f;
 			}
 
-			if (Input.GetKeyDown (KeyCode.E))
+			if (Input.GetKeyDown (KeyCode.E) && stoneCount > 0)
 			{
 				stoneCount -= 1;
 				stoneAmount.text = stoneCount.ToString();
-//				Instantiate(sign, new Vector3(m_Camera.transform.localPosition.x, m_Camera.transform.localPosition.y, m_Camera.transform.localPosition.z) , Quaternion.identity);
-				Instantiate(sign, new Vector3(m_Camera.transform.position.x, m_Camera.transform.position.y- 1.55f, m_Camera.transform.position.z) , Quaternion.identity);
+				Instantiate(sign, new Vector3(m_Camera.transform.position.x, m_Camera.transform.position.y - 1.55f, m_Camera.transform.position.z) , Quaternion.identity);
 
-				//sign.gameObject.SetActive (true);
 			}
 
 			if (Input.GetKeyDown (KeyCode.F) && lever && !doorIsOpen)
@@ -403,13 +407,13 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
 		}
 
-		bool IsInMaze()
-		{
-			if (touch)
-				return true;
-			else
-				return false;
-		}
+//		bool IsInMaze()
+//		{
+//			if (touch)
+//				return true;
+//			else
+//				return false;
+//		}
 	
 	
 	}
