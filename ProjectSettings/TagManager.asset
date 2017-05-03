@@ -10,6 +10,7 @@ TagManager:
   - Entry
   - oldDoor
   - door
+  - lever
   layers:
   - Default
   - TransparentFX
