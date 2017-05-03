@@ -157,6 +157,7 @@ GameObject:
   - component: {fileID: 82222974264229666}
   - component: {fileID: 108864625275423172}
   - component: {fileID: 136957147283657176}
+  - component: {fileID: 95483697320054906}
   m_Layer: 0
   m_Name: FPSController
   m_TagString: Untagged
@@ -255,7 +256,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1988021624186260}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 98.39427, y: 139.31183, z: -25.585667}
+  m_LocalPosition: {x: 14.823985, y: 5.828459, z: 9.769844}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4453999600565940}
@@ -269,14 +270,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1598755994310634}
-  m_LocalRotation: {x: 0.19555382, y: -0.6795283, z: 0.19555387, w: 0.6795283}
-  m_LocalPosition: {x: -17.599998, y: -95.5, z: 35.32}
+  m_LocalRotation: {x: 0.15095706, y: -0.6939524, z: 0.15241316, w: 0.68732256}
+  m_LocalPosition: {x: 0, y: -3.2, z: -0.6000004}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4964544310632144}
   m_Father: {fileID: 4312149415983312}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 32.109, y: -90.00001, z: 0}
+  m_LocalEulerAnglesHint: {x: 24.774002, y: -90.55, z: 0}
 --- !u!4 &4964544310632144
 Transform:
   m_ObjectHideFlags: 1
@@ -428,6 +429,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!95 &95483697320054906
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1598755994310634}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c0ef079700c6844d0a34390028c3c980, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!108 &108864625275423172
 Light:
   m_ObjectHideFlags: 1
@@ -854,6 +872,12 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 8bc94ec6ed537e743b481638bdcd503d, type: 3}
   m_JumpSound: {fileID: 8300000, guid: 5897aeed9b676024fbb8c694b421a861, type: 3}
   m_LandSound: {fileID: 8300000, guid: 3b09d59f4499d45428baa7a21e954296, type: 3}
+  waterBarSlider: {fileID: 114660606611189336}
+  hinduAmount: {fileID: 114618658091938718}
+  stoneAmount: {fileID: 114005275483368928}
+  DoorNewMaze: {fileID: 0}
+  lever: 1
+  doorIsOpen: 1
 --- !u!124 &124988394032439722
 Behaviour:
   m_ObjectHideFlags: 1

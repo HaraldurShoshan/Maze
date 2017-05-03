@@ -51,6 +51,16 @@ namespace UnityStandardAssets.Characters.FirstPerson
 		public Text hinduAmount;
 		private int stoneCount;
 		public Text stoneAmount;
+		private float waterFillingSpeed;
+
+		private Animator anim;
+		private Animator doorNewAnim;
+		private Animator doorOldAnim;
+		public Transform DoorNewMaze;
+		public bool lever;
+		public bool doorIsOpen = true;
+		private GameObject newDoor;
+		private GameObject oldDoor;
 
         // Use this for initialization
         private void Start()
@@ -67,12 +77,23 @@ namespace UnityStandardAssets.Characters.FirstPerson
 			m_MouseLook.Init(transform , m_Camera.transform);
 			waterValue = 0f;
 			waterBarSlider.value = waterValue;
-			touch = false;
+			touch = true;
 			collisionCounter = true;
 			hinduCount = 0;
 			hinduAmount.text = hinduCount.ToString();
 			stoneCount = 0;
 			stoneAmount.text = stoneCount.ToString();
+			waterFillingSpeed = .001f;
+
+			anim = GetComponent<Animator> ();
+
+			newDoor = GameObject.FindWithTag("door");
+			doorNewAnim = newDoor.GetComponent<Animator> ();
+
+			oldDoor = GameObject.FindWithTag ("oldDoor");
+			doorOldAnim = oldDoor.GetComponent<Animator> ();
+
+			lever = false;
         }
 
 
@@ -100,8 +121,10 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
             m_PreviouslyGrounded = m_CharacterController.isGrounded;
 
-			if (IsInMaze())
-				waterValue += .001f;
+			if (doorIsOpen) 
+			{
+					waterValue += waterFillingSpeed;	   
+			}
 
 			waterBarSlider.value = waterValue;
 
@@ -109,12 +132,34 @@ namespace UnityStandardAssets.Characters.FirstPerson
 			{
 				hinduCount -= 1;
 				hinduAmount.text = hinduCount.ToString();
+				waterFillingSpeed *= 0.75f;
 			}
 
 			if (Input.GetKeyDown (KeyCode.E))
 			{
 				stoneCount -= 1;
 				stoneAmount.text = stoneCount.ToString();
+			}
+
+			if (Input.GetKeyDown (KeyCode.F) && lever && !doorIsOpen)
+			{
+				doorIsOpen = true;
+				anim.Play ("PushLever");
+				doorNewAnim.Play ("OpenDoor");
+				doorOldAnim.Play ("OldDoorOpen");
+
+
+			} 
+			else if (Input.GetKeyDown (KeyCode.F) && lever && doorIsOpen) 
+			{
+				anim.Play ("PullLever");
+				doorNewAnim.Play ("CloseDoor");
+				doorOldAnim.Play ("OldDoorClose");
+				doorIsOpen = false;
+				//add wating for 1 second before reseting to 0 ?
+				waterValue = 0f;
+				waterFillingSpeed = .001f;
+
 			}
 				
         }
@@ -295,26 +340,26 @@ namespace UnityStandardAssets.Characters.FirstPerson
 		void OnTriggerEnter(Collider other)
 		{
 
-			if (other.gameObject.CompareTag ("Entry"))
-			{
-				//	other.gameObject.SetActive (false);
-				if (collisionCounter)
-				{
-					if (touch == false)
-						touch = true;
-					else
-					{
-						touch = false;
-						waterValue = 0f;
-					}
-					collisionCounter = false;
-				} else 
-				{
-					collisionCounter = true;
-				}
-
-
-			}
+//			if (other.gameObject.CompareTag ("Entry"))
+//			{
+//				//	other.gameObject.SetActive (false);
+//				if (collisionCounter)
+//				{
+//					if (touch == false)
+//						touch = true;
+//					else
+//					{
+//						touch = false;
+//						waterValue = 0f;
+//					}
+//					collisionCounter = false;
+//				} else 
+//				{
+//					collisionCounter = true;
+//				}
+//
+//
+//			}
 
 
 			if (other.gameObject.CompareTag ("Hindu"))
@@ -330,7 +375,23 @@ namespace UnityStandardAssets.Characters.FirstPerson
 				stoneCount += 1;
 				stoneAmount.text = stoneCount.ToString();
 			}
+
+			if (other.gameObject.CompareTag ("lever"))
+			{
+					lever = true;
+
+			}
 				
+
+		}
+
+		void OnTriggerExit(Collider other)
+		{
+			
+			if (other.gameObject.CompareTag ("lever"))
+			{
+				lever = false;
+			}
 
 		}
 
