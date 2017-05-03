@@ -4,6 +4,8 @@ using UnityStandardAssets.CrossPlatformInput;
 using UnityStandardAssets.Utility;
 using Random = UnityEngine.Random;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+using System.Collections;
 
 namespace UnityStandardAssets.Characters.FirstPerson
 {
@@ -60,13 +62,15 @@ namespace UnityStandardAssets.Characters.FirstPerson
 		private Animator anim;
 		private Animator doorNewAnim;
 		private Animator doorOldAnim;
-		public Transform DoorNewMaze;
+		private Transform DoorNewMaze;
 		public bool lever;
 		public bool doorIsOpen = true;
 		private GameObject newDoor;
 		private GameObject oldDoor;
 
 		public Transform sign;
+
+		public Text endOfGame;
 
         // Use this for initialization
         private void Start()
@@ -133,7 +137,13 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
 			if (doorIsOpen) 
 			{
-					waterValue += waterFillingSpeed;	   
+					waterValue += waterFillingSpeed;	
+
+				if (waterValue >= 1) 
+				{
+					StartCoroutine(EndOfGame ());
+				
+				}
 			}
 
 			waterBarSlider.value = waterValue;
@@ -414,6 +424,14 @@ namespace UnityStandardAssets.Characters.FirstPerson
 //			else
 //				return false;
 //		}
+
+		IEnumerator EndOfGame()
+		{
+			endOfGame.gameObject.SetActive (true);
+			yield return new WaitForSeconds (2);
+			SceneManager.LoadScene ("Janek");
+		}
+
 	
 	
 	}
