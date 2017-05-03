@@ -62,6 +62,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
 		private GameObject newDoor;
 		private GameObject oldDoor;
 
+		public Transform sign;
+
         // Use this for initialization
         private void Start()
         {
@@ -94,6 +96,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
 			doorOldAnim = oldDoor.GetComponent<Animator> ();
 
 			lever = false;
+
+
         }
 
 
@@ -139,6 +143,10 @@ namespace UnityStandardAssets.Characters.FirstPerson
 			{
 				stoneCount -= 1;
 				stoneAmount.text = stoneCount.ToString();
+//				Instantiate(sign, new Vector3(m_Camera.transform.localPosition.x, m_Camera.transform.localPosition.y, m_Camera.transform.localPosition.z) , Quaternion.identity);
+				Instantiate(sign, new Vector3(m_Camera.transform.position.x, m_Camera.transform.position.y- 1.55f, m_Camera.transform.position.z) , Quaternion.identity);
+
+				//sign.gameObject.SetActive (true);
 			}
 
 			if (Input.GetKeyDown (KeyCode.F) && lever && !doorIsOpen)
