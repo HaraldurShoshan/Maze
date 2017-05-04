@@ -105,7 +105,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 			hinduAmount.text = hinduCount.ToString();
 			stoneCount = 0;
 			stoneAmount.text = stoneCount.ToString();
-			waterFillingSpeed = .0008f;
+			waterFillingSpeed = .0005f;
 
 			//RoomBetween door closing and opening animation
 			leverRoomB = GameObject.FindWithTag("lever");
@@ -161,7 +161,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 			else if (!firstDoorIsOpen && firstDoorCounter == 0) 
 			{
 				waterValue = 0f;
-				waterFillingSpeed = .0008f;
+				waterFillingSpeed = .0005f;
 			} 
 			else if (doorIsOpen && firstDoorCounter == 1) 
 			{
@@ -175,7 +175,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 			else if (!doorIsOpen && firstDoorCounter == 1)
 			{
 				waterValue = 0f;
-				waterFillingSpeed = .0005f;
+				waterFillingSpeed = .00025f;
 			}
 
 			waterBarSlider.value = waterValue;
@@ -218,7 +218,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 				doorIsOpen = false;
 				//add wating for 1 second before reseting to 0 ?
 				waterValue = 0f;
-				waterFillingSpeed = .0005f;
+				waterFillingSpeed = .00025f;
 
 
 			}
