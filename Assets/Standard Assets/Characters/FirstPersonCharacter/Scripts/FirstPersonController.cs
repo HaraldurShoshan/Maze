@@ -159,7 +159,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 			{
 				stoneCount -= 1;
 				stoneAmount.text = stoneCount.ToString();
-				Instantiate(sign, new Vector3(m_Camera.transform.position.x, m_Camera.transform.position.y - 1.55f, m_Camera.transform.position.z) , Quaternion.identity);
+				Instantiate(sign, new Vector3(m_Camera.transform.position.x, m_Camera.transform.position.y - 1.65f, m_Camera.transform.position.z) , Quaternion.identity);
 
 			}
 
