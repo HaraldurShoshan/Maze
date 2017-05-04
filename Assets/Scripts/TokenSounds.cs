@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Sounds : MonoBehaviour {
+public class TokenSounds : MonoBehaviour {
 
 	public AudioSource SoundSource;
 	public AudioClip Sound;
@@ -11,14 +11,13 @@ public class Sounds : MonoBehaviour {
 	float volRate = 0.1f;
 
 	private bool hasPlayedAudio;
-	private bool collect = true;
 
 	void OnTriggerEnter(Collider other)
 	{
 		
 		if (other.gameObject.CompareTag ("Player") && hasPlayedAudio == false) 
 		{
-			SoundSource.volume = 0.0f;
+			SoundSource.volume = 0.05f;
 			SoundSource.clip = Sound;
 			SoundSource.Play ();
 			hasPlayedAudio = true;
@@ -30,7 +29,5 @@ public class Sounds : MonoBehaviour {
 			SoundSource.Stop ();
 			hasPlayedAudio = false;
 		}
-			
 	}
-		
 }
