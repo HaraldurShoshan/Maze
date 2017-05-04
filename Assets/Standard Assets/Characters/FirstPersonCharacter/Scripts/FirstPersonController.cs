@@ -60,18 +60,23 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
 		//RoomBetween door closing and opening animation
 		private Animator anim;
+		private Animator firstDoorAnim;
 		private Animator doorNewAnim;
 		private Animator doorOldAnim;
 		private Transform DoorNewMaze;
 		public bool lever;
 		public bool doorIsOpen = true;
+		public bool firstDoorIsOpen = false;
 		private GameObject newDoor;
 		private GameObject oldDoor;
 		private GameObject leverRoomB;
+		private GameObject firstDoor;
 
 		public Transform sign;
 
 		public Text endOfGame;
+
+
 
         // Use this for initialization
         private void Start()
@@ -86,6 +91,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_Jumping = false;
             m_AudioSource = GetComponent<AudioSource>();
 			m_MouseLook.Init(transform , m_Camera.transform);
+
 
 			//Entry Collider
 			//touch = true;
@@ -108,6 +114,11 @@ namespace UnityStandardAssets.Characters.FirstPerson
 			oldDoor = GameObject.FindWithTag ("oldDoor");
 			doorOldAnim = oldDoor.GetComponent<Animator> ();
 			lever = false;
+
+			//FirstRoom door
+			firstDoor = GameObject.FindWithTag("LeverFirstRoom");
+			firstDoorAnim = firstDoor.GetComponent<Animator> ();
+
 
 
         }
@@ -137,7 +148,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
             m_PreviouslyGrounded = m_CharacterController.isGrounded;
 
-			if (doorIsOpen) 
+			if (doorIsOpen && firstDoorIsOpen) 
 			{
 					waterValue += waterFillingSpeed;	
 
@@ -149,6 +160,23 @@ namespace UnityStandardAssets.Characters.FirstPerson
 			}
 
 			waterBarSlider.value = waterValue;
+
+			firstDoorIsOpen = firstDoorAnim.GetBool ("open");
+
+			if (firstDoorIsOpen) {
+				waterValue += waterFillingSpeed;	
+
+				if (waterValue >= 1) {
+					StartCoroutine (EndOfGame ());
+
+				}
+			} else if (!firstDoorIsOpen)
+			{
+				waterValue = 0f;
+				waterFillingSpeed = .001f;
+			}
+
+
 
 			if (Input.GetKeyDown (KeyCode.Q) && hinduCount > 0)
 			{
@@ -185,6 +213,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
 				waterFillingSpeed = .001f;
 
 			}
+
+		
 				
         }
 
