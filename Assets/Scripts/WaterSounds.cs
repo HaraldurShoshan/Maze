@@ -8,10 +8,19 @@ public class WaterSounds : MonoBehaviour {
 	public AudioClip Sound;
 
 	float incVolume = 0.0f;
-	float volRate = 0.1f;
+	float volRate = 0.08f;
 
 	private bool hasPlayedAudio;
 	private bool collect = true;
+
+	private void Update()
+	{
+		if (hasPlayedAudio) 
+		{
+			SoundSource.volume = incVolume;
+			incVolume += volRate;
+		}
+	}
 
 	void OnTriggerEnter(Collider other)
 	{
