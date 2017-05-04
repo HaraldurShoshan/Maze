@@ -17,7 +17,7 @@ public class TokenSounds : MonoBehaviour {
 		
 		if (other.gameObject.CompareTag ("Player") && hasPlayedAudio == false) 
 		{
-			SoundSource.volume = 0.05f;
+			SoundSource.volume = 1.0f;
 			SoundSource.clip = Sound;
 			SoundSource.Play ();
 			hasPlayedAudio = true;

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StoneSound: MonoBehaviour {
+public class WaterSounds : MonoBehaviour {
 
 	public AudioSource SoundSource;
 	public AudioClip Sound;
@@ -11,13 +11,14 @@ public class StoneSound: MonoBehaviour {
 	float volRate = 0.1f;
 
 	private bool hasPlayedAudio;
+	private bool collect = true;
 
 	void OnTriggerEnter(Collider other)
 	{
 		
 		if (other.gameObject.CompareTag ("Player") && hasPlayedAudio == false) 
 		{
-			SoundSource.volume = 1.0f;
+			SoundSource.volume = 0.01f;
 			SoundSource.clip = Sound;
 			SoundSource.Play ();
 			hasPlayedAudio = true;
@@ -29,5 +30,7 @@ public class StoneSound: MonoBehaviour {
 			SoundSource.Stop ();
 			hasPlayedAudio = false;
 		}
+			
 	}
+		
 }
