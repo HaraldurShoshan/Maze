@@ -67,6 +67,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 		public bool lever;
 		public bool doorIsOpen = true;
 		public bool firstDoorIsOpen = false;
+		private int firstDoorCounter = 0;
 		private GameObject newDoor;
 		private GameObject oldDoor;
 		private GameObject leverRoomB;
@@ -104,7 +105,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 			hinduAmount.text = hinduCount.ToString();
 			stoneCount = 0;
 			stoneAmount.text = stoneCount.ToString();
-			waterFillingSpeed = .0005f;
+			waterFillingSpeed = .0008f;
 
 			//RoomBetween door closing and opening animation
 			leverRoomB = GameObject.FindWithTag("lever");
@@ -148,33 +149,38 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
             m_PreviouslyGrounded = m_CharacterController.isGrounded;
 
-			if (doorIsOpen && firstDoorIsOpen) 
+			if (firstDoorIsOpen && firstDoorCounter == 0) 
 			{
-					waterValue += waterFillingSpeed;	
+				waterValue += waterFillingSpeed;	
 
-				if (waterValue >= 1) 
-				{
-					StartCoroutine(EndOfGame ());
+				if (waterValue >= 1) {
+					StartCoroutine (EndOfGame ());
 				
 				}
-			}
-
-			waterBarSlider.value = waterValue;
-
-			firstDoorIsOpen = firstDoorAnim.GetBool ("open");
-
-			if (firstDoorIsOpen) {
+			} 
+			else if (!firstDoorIsOpen && firstDoorCounter == 0) 
+			{
+				waterValue = 0f;
+				waterFillingSpeed = .0008f;
+			} 
+			else if (doorIsOpen && firstDoorCounter == 1) 
+			{
 				waterValue += waterFillingSpeed;	
 
 				if (waterValue >= 1) {
 					StartCoroutine (EndOfGame ());
 
 				}
-			} else if (!firstDoorIsOpen)
+			} 
+			else if (!doorIsOpen && firstDoorCounter == 1)
 			{
 				waterValue = 0f;
 				waterFillingSpeed = .0005f;
 			}
+
+			waterBarSlider.value = waterValue;
+
+			firstDoorIsOpen = firstDoorAnim.GetBool ("open");
 
 
 
@@ -204,7 +210,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
 			} 
 			else if (Input.GetKeyDown (KeyCode.F) && lever && doorIsOpen) 
 			{
-				firstDoorIsOpen = false;
+				//firstDoorIsOpen = false;
+				firstDoorCounter = 1;
 				anim.Play ("PullLever");
 				doorNewAnim.Play ("CloseDoor");
 				doorOldAnim.Play ("OldDoorClose");
@@ -396,27 +403,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 		void OnTriggerEnter(Collider other)
 		{
 
-//			if (other.gameObject.CompareTag ("Entry"))
-//			{
-//				//	other.gameObject.SetActive (false);
-//				if (collisionCounter)
-//				{
-//					if (touch == false)
-//						touch = true;
-//					else
-//					{
-//						touch = false;
-//						waterValue = 0f;
-//					}
-//					collisionCounter = false;
-//				} else 
-//				{
-//					collisionCounter = true;
-//				}
-//
-//
-//			}
-
+		
 
 			if (other.gameObject.CompareTag ("Hindu"))
 			{
