@@ -67,6 +67,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 		public bool doorIsOpen = true;
 		private GameObject newDoor;
 		private GameObject oldDoor;
+		private GameObject leverRoomB;
 
 		public Transform sign;
 
@@ -100,7 +101,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
 			waterFillingSpeed = .001f;
 
 			//RoomBetween door closing and opening animation
-			anim = GetComponent<Animator> ();
+			leverRoomB = GameObject.FindWithTag("lever");
+			anim = leverRoomB.GetComponent<Animator> ();
 			newDoor = GameObject.FindWithTag("door");
 			doorNewAnim = newDoor.GetComponent<Animator> ();
 			oldDoor = GameObject.FindWithTag ("oldDoor");

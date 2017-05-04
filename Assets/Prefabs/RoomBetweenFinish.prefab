@@ -884,11 +884,11 @@ GameObject:
   m_Component:
   - component: {fileID: 4696859800913550}
   - component: {fileID: 33428541226698420}
-  - component: {fileID: 136861652307107118}
   - component: {fileID: 23646382827072338}
   - component: {fileID: 95760839126833226}
   - component: {fileID: 114547633441129280}
   - component: {fileID: 65244047548399616}
+  - component: {fileID: 136648844632980018}
   m_Layer: 0
   m_Name: Cylinder
   m_TagString: lever
@@ -2899,7 +2899,7 @@ MeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1322476674990872}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_MotionVectors: 1
@@ -4065,7 +4065,7 @@ BoxCollider:
   m_GameObject: {fileID: 1322476674990872}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -4824,16 +4824,16 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!136 &136861652307107118
+--- !u!136 &136648844632980018
 CapsuleCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1883251385014882}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 10
-  m_Height: 2
+  m_Radius: 0.5000001
+  m_Height: 1.9999998
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0.000015318394, y: 0.0000023841858, z: -0.00000008940697}
