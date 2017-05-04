@@ -104,7 +104,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 			hinduAmount.text = hinduCount.ToString();
 			stoneCount = 0;
 			stoneAmount.text = stoneCount.ToString();
-			waterFillingSpeed = .001f;
+			waterFillingSpeed = .0005f;
 
 			//RoomBetween door closing and opening animation
 			leverRoomB = GameObject.FindWithTag("lever");
@@ -173,7 +173,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 			} else if (!firstDoorIsOpen)
 			{
 				waterValue = 0f;
-				waterFillingSpeed = .001f;
+				waterFillingSpeed = .0005f;
 			}
 
 
@@ -204,13 +204,15 @@ namespace UnityStandardAssets.Characters.FirstPerson
 			} 
 			else if (Input.GetKeyDown (KeyCode.F) && lever && doorIsOpen) 
 			{
+				firstDoorIsOpen = false;
 				anim.Play ("PullLever");
 				doorNewAnim.Play ("CloseDoor");
 				doorOldAnim.Play ("OldDoorClose");
 				doorIsOpen = false;
 				//add wating for 1 second before reseting to 0 ?
 				waterValue = 0f;
-				waterFillingSpeed = .001f;
+				waterFillingSpeed = .0005f;
+
 
 			}
 
@@ -461,7 +463,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 		{
 			endOfGame.gameObject.SetActive (true);
 			yield return new WaitForSeconds (2);
-			SceneManager.LoadScene ("Janek");
+			SceneManager.LoadScene ("TestDay");
 		}
 
 	
