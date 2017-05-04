@@ -8,13 +8,14 @@ public class WaterSounds : MonoBehaviour {
 	public AudioClip Sound;
 
 	float incVolume = 0.0f;
-	float volRate = 0.08f;
+	float volRate = 0.0008f;
 
-	private bool hasPlayedAudio;
+	private bool hasPlayedAudio = false;
 	private bool collect = true;
 
 	private void Update()
 	{
+		Debug.Log (hasPlayedAudio);
 		if (hasPlayedAudio) 
 		{
 			SoundSource.volume = incVolume;
@@ -25,7 +26,7 @@ public class WaterSounds : MonoBehaviour {
 	void OnTriggerEnter(Collider other)
 	{
 		
-		if (other.gameObject.CompareTag ("Player") && hasPlayedAudio == false) 
+		if (other.gameObject.CompareTag ("Player") && !hasPlayedAudio) 
 		{
 			SoundSource.volume = 0.01f;
 			SoundSource.clip = Sound;
@@ -33,13 +34,16 @@ public class WaterSounds : MonoBehaviour {
 			hasPlayedAudio = true;
 
 		} 
-		else if (other.gameObject.CompareTag ("Player") && hasPlayedAudio == true) 
+	}
+
+	void OnTriggerExit(Collider other)
+	{
+		if (other.gameObject.CompareTag ("Player") && hasPlayedAudio) 
 		{
 			SoundSource.volume = 0.0f;
 			SoundSource.Stop ();
 			hasPlayedAudio = false;
 		}
-			
 	}
 		
 }
