@@ -18,7 +18,7 @@ public class Sounds : MonoBehaviour {
 		
 		if (other.gameObject.CompareTag ("Player") && hasPlayedAudio == false) 
 		{
-			SoundSource.volume = 0.0f;
+			SoundSource.volume = 0.05f;
 			SoundSource.clip = Sound;
 			SoundSource.Play ();
 			hasPlayedAudio = true;
