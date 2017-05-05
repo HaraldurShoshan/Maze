@@ -151,7 +151,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
 			if (firstDoorIsOpen && firstDoorCounter == 0) 
 			{
-				waterValue += waterFillingSpeed;	
+				waterValue += waterFillingSpeed*Time.deltaTime*50;	
 
 				if (waterValue >= 1) {
 					StartCoroutine (EndOfGame ());
@@ -165,7 +165,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 			} 
 			else if (doorIsOpen && firstDoorCounter == 1) 
 			{
-				waterValue += waterFillingSpeed;	
+				waterValue += waterFillingSpeed*Time.deltaTime*50;	
 
 				if (waterValue >= 1) {
 					StartCoroutine (EndOfGame ());
