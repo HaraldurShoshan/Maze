@@ -7,20 +7,20 @@ public class WaterSounds : MonoBehaviour {
 	public AudioSource SoundSource;
 	public AudioClip Sound;
 
-	float incVolume = 0.0f;
-	float volRate = 0.0008f;
+	float incVolume = 0.03f;
+	//float volRate = 0.0008f;
 
 	private bool hasPlayedAudio = false;
 	private bool collect = true;
 
 	private void Update()
 	{
-		Debug.Log (hasPlayedAudio);
-		if (hasPlayedAudio) 
-		{
-			SoundSource.volume = incVolume;
-			incVolume += volRate;
-		}
+//		Debug.Log (hasPlayedAudio);
+//		if (hasPlayedAudio) 
+//		{
+//			SoundSource.volume = incVolume;
+//			incVolume += volRate;
+//		}
 	}
 
 	void OnTriggerEnter(Collider other)
@@ -28,7 +28,7 @@ public class WaterSounds : MonoBehaviour {
 		
 		if (other.gameObject.CompareTag ("Player") && !hasPlayedAudio) 
 		{
-			SoundSource.volume = 0.01f;
+			SoundSource.volume = incVolume;
 			SoundSource.clip = Sound;
 			SoundSource.Play ();
 			hasPlayedAudio = true;
