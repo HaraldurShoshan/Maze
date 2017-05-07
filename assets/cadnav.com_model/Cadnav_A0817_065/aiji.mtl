@@ -1,0 +1,226 @@
+# 3ds Max Wavefront OBJ Exporter v0.97b - (c)2007 guruware
+# 눼쉔돨匡숭:15.03.2010 17:26:30
+
+newmtl ANB201
+	Ns 9.9500
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.0000 0.0000 0.0000
+	Kd 1.0000 1.0000 1.0000
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka C:\Users\hawk\Desktop\밍\Maps\anubis2bc.jpg
+	map_Kd C:\Users\hawk\Desktop\밍\Maps\anubis2bc.jpg
+
+newmtl SPEAR
+	Ns 9.9500
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.0000 0.0000 0.0000
+	Kd 1.0000 1.0000 1.0000
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka C:\Users\hawk\Desktop\밍\Maps\spearc.jpg
+	map_Kd C:\Users\hawk\Desktop\밍\Maps\spearc.jpg
+
+newmtl ANKH2
+	Ns 9.9500
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.0000 0.0000 0.0000
+	Kd 1.0000 1.0000 1.0000
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka C:\Users\hawk\Desktop\밍\Maps\ankhbc.jpg
+	map_Kd C:\Users\hawk\Desktop\밍\Maps\ankhbc.jpg
+
+newmtl BASE05
+	Ns 9.9500
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.0980 0.0980 0.0980
+	Kd 1.0000 1.0000 1.0000
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka C:\Users\hawk\Desktop\밍\Maps\base02bc.jpg
+	map_Kd C:\Users\hawk\Desktop\밍\Maps\base02bc.jpg
+
+newmtl BAST01
+	Ns 9.9500
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.0000 0.0000 0.0000
+	Kd 1.0000 1.0000 1.0000
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka C:\Users\hawk\Desktop\밍\Maps\bastbc.jpg
+	map_Kd C:\Users\hawk\Desktop\밍\Maps\bastbc.jpg
+
+newmtl BASE03
+	Ns 9.9500
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.0980 0.0980 0.0980
+	Kd 1.0000 1.0000 1.0000
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka C:\Users\hawk\Desktop\밍\Maps\base02bc.jpg
+	map_Kd C:\Users\hawk\Desktop\밍\Maps\base02bc.jpg
+
+newmtl FALCON01
+	Ns 9.9500
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.0000 0.0000 0.0000
+	Kd 1.0000 1.0000 1.0000
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka C:\Users\hawk\Desktop\밍\Maps\falconc.jpg
+	map_Kd C:\Users\hawk\Desktop\밍\Maps\falconc.jpg
+
+newmtl BASE04
+	Ns 9.9500
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.0980 0.0980 0.0980
+	Kd 1.0000 1.0000 1.0000
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka C:\Users\hawk\Desktop\밍\Maps\base01bc.jpg
+	map_Kd C:\Users\hawk\Desktop\밍\Maps\base01bc.jpg
+
+newmtl HORUS01
+	Ns 9.9500
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.0000 0.0000 0.0000
+	Kd 1.0000 1.0000 1.0000
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka C:\Users\hawk\Desktop\밍\Maps\horusbc.jpg
+	map_Kd C:\Users\hawk\Desktop\밍\Maps\horusbc.jpg
+
+newmtl CROWN
+	Ns 9.9500
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.0000 0.0000 0.0000
+	Kd 1.0000 1.0000 1.0000
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka C:\Users\hawk\Desktop\밍\Maps\crownbc.jpg
+	map_Kd C:\Users\hawk\Desktop\밍\Maps\crownbc.jpg
+
+newmtl BASE02
+	Ns 9.9500
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.0980 0.0980 0.0980
+	Kd 1.0000 1.0000 1.0000
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka C:\Users\hawk\Desktop\밍\Maps\base02bc.jpg
+	map_Kd C:\Users\hawk\Desktop\밍\Maps\base02bc.jpg
+
+newmtl HUMAN01
+	Ns 9.2772
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.0000 0.0000 0.0000
+	Kd 1.0000 1.0000 1.0000
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka C:\Users\hawk\Desktop\밍\Maps\humanc.jpg
+	map_Kd C:\Users\hawk\Desktop\밍\Maps\humanc.jpg
+
+newmtl ANB101
+	Ns 9.9500
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.0000 0.0000 0.0000
+	Kd 1.0000 1.0000 1.0000
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka C:\Users\hawk\Desktop\밍\Maps\anubis1bc.jpg
+	map_Kd C:\Users\hawk\Desktop\밍\Maps\anubis1bc.jpg
+
+newmtl BASE01
+	Ns 9.9500
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.0980 0.0980 0.0980
+	Kd 1.0000 1.0000 1.0000
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka C:\Users\hawk\Desktop\밍\Maps\base01bc.jpg
+	map_Kd C:\Users\hawk\Desktop\밍\Maps\base01bc.jpg
+
+newmtl RAM01
+	Ns 9.3733
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.0000 0.0000 0.0000
+	Kd 1.0000 1.0000 1.0000
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka C:\Users\hawk\Desktop\밍\Maps\ramc.jpg
+	map_Kd C:\Users\hawk\Desktop\밍\Maps\ramc.jpg
+
+newmtl MUMMY01
+	Ns 9.3733
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.0000 0.0000 0.0000
+	Kd 1.0000 1.0000 1.0000
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka C:\Users\hawk\Desktop\밍\Maps\mummyc.jpg
+	map_Kd C:\Users\hawk\Desktop\밍\Maps\mummyc.jpg
