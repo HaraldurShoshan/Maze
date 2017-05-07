@@ -50,13 +50,13 @@ namespace UnityStandardAssets.Characters.FirstPerson
 		//private bool collisionCounter;
 
 		//User Interface
-		public Slider waterBarSlider;
-		private float waterValue;
-		private int hinduCount;
-		public Text hinduAmount;
-		private int stoneCount;
-		public Text stoneAmount;
-		private float waterFillingSpeed;
+//		public Slider waterBarSlider;
+//		private float waterValue;
+//		private int hinduCount;
+//		public Text hinduAmount;
+//		private int stoneCount;
+//		public Text stoneAmount;
+//		private float waterFillingSpeed;
 
 		//RoomBetween door closing and opening animation
 		private Animator anim;
@@ -77,8 +77,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
 		public Text endOfGame;
 
-
-
         // Use this for initialization
         private void Start()
         {
@@ -97,15 +95,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
 			//Entry Collider
 			//touch = true;
 			//collisionCounter = true;
-
-			//User Interface
-			waterValue = 0f;
-			waterBarSlider.value = waterValue;
-			hinduCount = 0;
-			hinduAmount.text = hinduCount.ToString();
-			stoneCount = 0;
-			stoneAmount.text = stoneCount.ToString();
-			waterFillingSpeed = .0005f;
 
 			//RoomBetween door closing and opening animation
 			leverRoomB = GameObject.FindWithTag("lever");
@@ -149,55 +138,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
             m_PreviouslyGrounded = m_CharacterController.isGrounded;
 
-			if (firstDoorIsOpen && firstDoorCounter == 0) 
-			{
-				waterValue += waterFillingSpeed*Time.deltaTime*50;	
-
-				if (waterValue >= 1) {
-					StartCoroutine (EndOfGame ());
-				
-				}
-			} 
-			else if (!firstDoorIsOpen && firstDoorCounter == 0) 
-			{
-				waterValue = 0f;
-				waterFillingSpeed = .0005f;
-			} 
-			else if (doorIsOpen && firstDoorCounter == 1) 
-			{
-				waterValue += waterFillingSpeed*Time.deltaTime*50;	
-
-				if (waterValue >= 1) {
-					StartCoroutine (EndOfGame ());
-
-				}
-			} 
-			else if (!doorIsOpen && firstDoorCounter == 1)
-			{
-				waterValue = 0f;
-				waterFillingSpeed = .00025f;
-			}
-
-			waterBarSlider.value = waterValue;
-
 			firstDoorIsOpen = firstDoorAnim.GetBool ("open");
-
-
-
-			if (Input.GetKeyDown (KeyCode.Q) && hinduCount > 0)
-			{
-					hinduCount -= 1;
-					hinduAmount.text = hinduCount.ToString();
-					waterFillingSpeed *= 0.75f;
-			}
-
-			if (Input.GetKeyDown (KeyCode.E) && stoneCount > 0)
-			{
-				stoneCount -= 1;
-				stoneAmount.text = stoneCount.ToString();
-				Instantiate(sign, new Vector3(m_Camera.transform.position.x, m_Camera.transform.position.y - 1.65f, m_Camera.transform.position.z) , Quaternion.identity);
-
-			}
 
 			if (Input.GetKeyDown (KeyCode.F) && lever && !doorIsOpen)
 			{
@@ -217,10 +158,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
 				doorOldAnim.Play ("OldDoorClose");
 				doorIsOpen = false;
 				//add wating for 1 second before reseting to 0 ?
-				waterValue = 0f;
-				waterFillingSpeed = .00025f;
-
-
 			}
 
 		
@@ -402,30 +339,11 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
 		void OnTriggerEnter(Collider other)
 		{
-
-		
-
-			if (other.gameObject.CompareTag ("Hindu"))
-			{
-				other.gameObject.SetActive (false);
-				hinduCount += 1;
-				hinduAmount.text = hinduCount.ToString();
-			}
-
-			if (other.gameObject.CompareTag ("Stone"))
-			{
-				other.gameObject.SetActive (false);
-				stoneCount += 1;
-				stoneAmount.text = stoneCount.ToString();
-			}
-
 			if (other.gameObject.CompareTag ("lever"))
 			{
 					lever = true;
 
-			}
-				
-
+			}		
 		}
 
 		void OnTriggerExit(Collider other)
@@ -451,13 +369,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 			endOfGame.gameObject.SetActive (true);
 			yield return new WaitForSeconds (2);
 			SceneManager.LoadScene ("TestDay");
-		}
-
-	
-	
-	}
-
-
-
-    }
+		}			
+	}		
+}
 

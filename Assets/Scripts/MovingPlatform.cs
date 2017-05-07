@@ -23,6 +23,7 @@ public class MovingPlatform : MonoBehaviour {
 		Debug.Log ("Am I in the maze? " + inMaze);
 		Debug.Log ("Am I alive? " + alive);
 		Debug.Log ("Have I entered the maze? " + enteredMaze);
+
 		if (inMaze && alive) 
 		{
 			speed = 0.05f;
