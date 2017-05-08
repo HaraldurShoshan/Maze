@@ -12,7 +12,7 @@ public class Torch : MonoBehaviour {
 	GameObject myFire;
 
 	void Start() {
-		fireOff = false;
+		fireOff = true;
 		hit = false;
 		rend = GetComponent<Renderer>();
 		float size = Screen.width * 0.1f;
@@ -63,6 +63,10 @@ public class Torch : MonoBehaviour {
 	{
 		if (other.gameObject.CompareTag ("Fire") && !myFire) {
 			myFire = other.gameObject;
+		}
+
+		if (other.gameObject.CompareTag ("Water")) {
+			fireOff = false;
 		}
 	}
 }
