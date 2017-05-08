@@ -46,37 +46,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private AudioSource m_AudioSource;
 
 
-		//private bool touch;
-		//private bool collisionCounter;
-
-		//User Interface
-//		public Slider waterBarSlider;
-//		private float waterValue;
-//		private int hinduCount;
-//		public Text hinduAmount;
-//		private int stoneCount;
-//		public Text stoneAmount;
-//		private float waterFillingSpeed;
-
-		//RoomBetween door closing and opening animation
-		private Animator anim;
-		private Animator firstDoorAnim;
-		private Animator doorNewAnim;
-		private Animator doorOldAnim;
-		private Transform DoorNewMaze;
-		public bool lever;
-		public bool doorIsOpen = true;
-		public bool firstDoorIsOpen = false;
-		private int firstDoorCounter = 0;
-		private GameObject newDoor;
-		private GameObject oldDoor;
-		private GameObject leverRoomB;
-		private GameObject firstDoor;
-
-		public Transform sign;
-
-		public Text endOfGame;
-
+	
         // Use this for initialization
         private void Start()
         {
@@ -91,27 +61,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_AudioSource = GetComponent<AudioSource>();
 			m_MouseLook.Init(transform , m_Camera.transform);
 
-
-			//Entry Collider
-			//touch = true;
-			//collisionCounter = true;
-
-			//RoomBetween door closing and opening animation
-			leverRoomB = GameObject.FindWithTag("lever");
-			anim = leverRoomB.GetComponent<Animator> ();
-			newDoor = GameObject.FindWithTag("door");
-			doorNewAnim = newDoor.GetComponent<Animator> ();
-			oldDoor = GameObject.FindWithTag ("oldDoor");
-			doorOldAnim = oldDoor.GetComponent<Animator> ();
-			lever = false;
-
-			//FirstRoom door
-			firstDoor = GameObject.FindWithTag("LeverFirstRoom");
-			firstDoorAnim = firstDoor.GetComponent<Animator> ();
-
-
-
-        }
+		}
 
 
         // Update is called once per frame
@@ -138,30 +88,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
             m_PreviouslyGrounded = m_CharacterController.isGrounded;
 
-			firstDoorIsOpen = firstDoorAnim.GetBool ("open");
 
-			if (Input.GetKeyDown (KeyCode.F) && lever && !doorIsOpen)
-			{
-				doorIsOpen = true;
-				anim.Play ("PushLever");
-				doorNewAnim.Play ("OpenDoor");
-				doorOldAnim.Play ("OldDoorOpen");
-
-
-			} 
-			else if (Input.GetKeyDown (KeyCode.F) && lever && doorIsOpen) 
-			{
-				//firstDoorIsOpen = false;
-				firstDoorCounter = 1;
-				anim.Play ("PullLever");
-				doorNewAnim.Play ("CloseDoor");
-				doorOldAnim.Play ("OldDoorClose");
-				doorIsOpen = false;
-				//add wating for 1 second before reseting to 0 ?
-			}
-
-		
-				
         }
 
 
@@ -237,25 +164,25 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
             m_NextStep = m_StepCycle + m_StepInterval;
 
-            PlayFootStepAudio();
+           // PlayFootStepAudio();
         }
 
 
-        private void PlayFootStepAudio()
-        {
-            if (!m_CharacterController.isGrounded)
-            {
-                return;
-            }
-            // pick & play a random footstep sound from the array,
-            // excluding sound at index 0
-            int n = Random.Range(1, m_FootstepSounds.Length);
-            m_AudioSource.clip = m_FootstepSounds[n];
-            m_AudioSource.PlayOneShot(m_AudioSource.clip);
-            // move picked sound to index 0 so it's not picked next time
-            m_FootstepSounds[n] = m_FootstepSounds[0];
-            m_FootstepSounds[0] = m_AudioSource.clip;
-        }
+//        private void PlayFootStepAudio()
+//        {
+//            if (!m_CharacterController.isGrounded)
+//            {
+//                return;
+//            }
+//            // pick & play a random footstep sound from the array,
+//            // excluding sound at index 0
+//            int n = Random.Range(1, m_FootstepSounds.Length);
+//            m_AudioSource.clip = m_FootstepSounds[n];
+//            m_AudioSource.PlayOneShot(m_AudioSource.clip);
+//            // move picked sound to index 0 so it's not picked next time
+//            m_FootstepSounds[n] = m_FootstepSounds[0];
+//            m_FootstepSounds[0] = m_AudioSource.clip;
+//        }
 
 
         private void UpdateCameraPosition(float speed)
@@ -339,37 +266,16 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
 		void OnTriggerEnter(Collider other)
 		{
-			if (other.gameObject.CompareTag ("lever"))
+			if(other.gameObject.CompareTag("UpperLimit"))
 			{
-					lever = true;
-
-			}		
-		}
-
-		void OnTriggerExit(Collider other)
-		{
-			
-			if (other.gameObject.CompareTag ("lever"))
-			{
-				lever = false;
+					SceneManager.LoadScene("JanekTest");
 			}
-
 		}
 
-//		bool IsInMaze()
-//		{
-//			if (touch)
-//				return true;
-//			else
-//				return false;
-//		}
 
-		IEnumerator EndOfGame()
-		{
-			endOfGame.gameObject.SetActive (true);
-			yield return new WaitForSeconds (2);
-			SceneManager.LoadScene ("TestDay");
-		}			
+		
+
+
 	}		
 }
 
