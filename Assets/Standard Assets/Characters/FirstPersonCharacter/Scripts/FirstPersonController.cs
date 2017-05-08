@@ -266,10 +266,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
 		void OnTriggerEnter(Collider other)
 		{
-			if(other.gameObject.CompareTag("UpperLimit"))
-			{
-					SceneManager.LoadScene("JanekTest");
-			}
+			
 		}
 
 
