@@ -216,7 +216,7 @@ GameObject:
   - component: {fileID: 114591154179490182}
   m_Layer: 0
   m_Name: FireTorchOBJ
-  m_TagString: Untagged
+  m_TagString: TorchInMaze
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -257,8 +257,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1287787348091500}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -25.79, y: 0.05, z: 0.89}
+  m_LocalRotation: {x: -0, y: 0.6750586, z: -0, w: 0.7377642}
+  m_LocalPosition: {x: -25.860207, y: 0.85, z: 0.486}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4924084034888290}
@@ -266,7 +266,7 @@ Transform:
   - {fileID: 4617538728036382}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 84.91701, z: 0}
 --- !u!4 &4245614490440088
 Transform:
   m_ObjectHideFlags: 1
@@ -560,8 +560,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.53972965, z: 1}
-  m_Center: {x: 0, y: 0.2301348, z: 0}
+  m_Size: {x: 0.2018083, y: 0.53972965, z: 1}
+  m_Center: {x: -0.39909583, y: 0.2301348, z: -9.836221e-11}
 --- !u!65 &65403776375558226
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -572,8 +572,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.74794126, y: 1.4856136, z: 1.1917562}
-  m_Center: {x: -4.7130017, y: 2.1582959, z: 4.561571}
+  m_Size: {x: 0.6269356, y: 1.4856136, z: 1.1490481}
+  m_Center: {x: -4.7734346, y: 2.1582959, z: 4.5828695}
 --- !u!65 &65447960340415790
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -713,7 +713,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c328a7fd231ba9d4f80455763fda2fe2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireOff: 0
+  fireDies: 0
 --- !u!114 &114261702319361352
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -738,7 +738,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c328a7fd231ba9d4f80455763fda2fe2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireOff: 0
+  fireDies: 0
 --- !u!114 &114591154179490182
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -752,7 +752,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hit: 0
   fireOff: 0
-  rend: {fileID: 0}
+  fireIsOn: 0
 --- !u!114 &114713145213687350
 MonoBehaviour:
   m_ObjectHideFlags: 1
