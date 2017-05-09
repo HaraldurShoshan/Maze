@@ -4,23 +4,29 @@ using UnityEngine;
 
 public class KillTorch : MonoBehaviour {
 
-	public bool fireOff;
+	public bool fireDies;
 
 	// Use this for initialization
 	void Start () {
-		fireOff = false;
+		fireDies = false;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (fireOff) {
+		if (fireDies) 
+		{
 			gameObject.SetActive (false);
 		}
 	}
 
 	void OnTriggerEnter (Collider other){
-		if (other.gameObject.CompareTag ("Water")) {
-			fireOff = true;
+		if (other.gameObject.CompareTag ("Water")) 
+		{			
+			fireDies = true;
+		} 
+		else 
+		{
+			fireDies = false;
 		}
 	}
 }
