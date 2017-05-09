@@ -2827,6 +2827,7 @@ GameObject:
   - component: {fileID: 65860179459769482}
   - component: {fileID: 95743181486602508}
   - component: {fileID: 114480260672694268}
+  - component: {fileID: 114179110434999244}
   m_Layer: 0
   m_Name: Lever
   m_TagString: FirstRoomLever
@@ -20179,6 +20180,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireOff: 0
+--- !u!114 &114179110434999244
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1618105760316940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 666cec81f18a54ec1b28deece84995f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  counter: 0
+  missionAccomplished: 0
 --- !u!114 &114184007525597708
 MonoBehaviour:
   m_ObjectHideFlags: 1
