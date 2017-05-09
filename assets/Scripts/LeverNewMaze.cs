@@ -6,7 +6,6 @@ public class LeverNewMaze : MonoBehaviour {
 
 	private Animator anim;
 	private Animator doorAnim;
-	private bool showGUI;
 	public bool hit;
 	private bool isOpen;
 
@@ -15,7 +14,6 @@ public class LeverNewMaze : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		hit = false;
-		showGUI = true;
 		anim = GetComponent<Animator> ();
 		leverHitText = "Press 'e' to use lever";
 	}
