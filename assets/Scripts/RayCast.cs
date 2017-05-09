@@ -25,6 +25,9 @@ public class RayCast : MonoBehaviour {
 
 	GameObject player;
 
+	TorchesInFirstRoom TorchNow;
+	TorchesInFirstRoom TorchLast;
+
 	// Use this for initialization
 	void Start () {
 	}
@@ -37,36 +40,36 @@ public class RayCast : MonoBehaviour {
 
 			GameObject nowHitByRay = whatIHit.collider.gameObject;
 
-			if (whatIHit.collider.tag == "Fire") {
-				Debug.Log ("Fires");
-			}
+			if (nowHitByRay.gameObject.tag == "Torch") {
+				TorchNow = nowHitByRay.gameObject.GetComponent<TorchesInFirstRoom> ();
+//				ts.hit = true;
 
-			if (lastHitByRay && lastHitByRay != nowHitByRay) {
-
-				try {
-					lastHitByRay.SendMessage ("OnRayHitEnded");
-				} catch (System.Exception ex) {
-					Debug.Log (ex);
+				if (TorchLast && TorchLast != TorchNow){
+					TorchLast.hit = false;
 				}
+
+				TorchLast = TorchNow;
+				TorchNow.hit = true;
 			}
 
-			lastHitByRay = nowHitByRay;
-			try {
-				nowHitByRay.SendMessage ("OnRayHitBegan");
-			} catch (System.Exception ex) {
-				Debug.Log (ex);
-			}
+
+
+//			if (lastHitByRay && lastHitByRay != nowHitByRay) {
+//				lastHitByRay.SendMessage ("OnRayHitEnded");
+//			}
+//
+//			lastHitByRay = nowHitByRay;
+//			nowHitByRay.SendMessage ("OnRayHitBegan");
+			
 				
 
 		} else {
-			if (lastHitByRay) {
-				try {
-					lastHitByRay.SendMessage ("OnRayHitEnded");	
-				} catch (System.Exception ex) {
-					Debug.Log (ex);
-				}
-
+			if (TorchLast) {
+				TorchLast.hit = false;
 			}
+//			if (lastHitByRay) {
+//				lastHitByRay.SendMessage ("OnRayHitEnded");	
+//			}
 		}
 	}
 }

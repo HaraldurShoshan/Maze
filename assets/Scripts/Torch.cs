@@ -66,7 +66,7 @@ public class Torch : MonoBehaviour {
 		}
 
 		if (other.gameObject.CompareTag ("Water")) {
-//			fireOff = false;
+			fireOff = false;
 		}
 	}
 }

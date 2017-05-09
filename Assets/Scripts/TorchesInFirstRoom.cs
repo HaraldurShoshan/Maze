@@ -63,9 +63,5 @@ public class TorchesInFirstRoom : MonoBehaviour {
 		if (other.gameObject.CompareTag ("Fire") && !myFire) {
 			myFire = other.gameObject;
 		}
-
-		if (other.gameObject.CompareTag ("Water")) {
-			fireOff = false;
-		}
 	}
 }

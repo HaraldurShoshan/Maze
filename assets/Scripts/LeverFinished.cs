@@ -13,7 +13,6 @@ public class LeverFinished : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-//		hit = false;
 		showGUI = true;
 		anim = GetComponent<Animator> ();
 		leverHitText = "Press 'e' to pull lever down";
