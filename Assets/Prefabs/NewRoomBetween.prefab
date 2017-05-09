@@ -480,7 +480,7 @@ GameObject:
   - component: {fileID: 114973094950126932}
   m_Layer: 0
   m_Name: FireTorchOBJ
-  m_TagString: Untagged
+  m_TagString: TorchInMaze
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -760,7 +760,7 @@ GameObject:
   - component: {fileID: 114584377221492712}
   m_Layer: 0
   m_Name: FireTorchOBJ
-  m_TagString: Untagged
+  m_TagString: TorchInMaze
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2920,8 +2920,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1988754266523426}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.301582, y: -2.6484616, z: 3.3506234}
-  m_LocalScale: {x: 0.09903901, y: 4.0866947, z: 2.4421399}
+  m_LocalPosition: {x: -7.3, y: -2.6484616, z: 2.9}
+  m_LocalScale: {x: 0.099039055, y: 4.0866947, z: 1.542181}
   m_Children: []
   m_Father: {fileID: 4083485273737304}
   m_RootOrder: 2
@@ -3323,8 +3323,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1572866458166288}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.301582, y: -2.6484616, z: -6.4173765}
-  m_LocalScale: {x: 0.09903901, y: 4.0866947, z: 2.4421399}
+  m_LocalPosition: {x: -7.3, y: -2.6484616, z: -5.97}
+  m_LocalScale: {x: 0.09903901, y: 4.0866947, z: 1.5532341}
   m_Children: []
   m_Father: {fileID: 4083485273737304}
   m_RootOrder: 4
@@ -4001,7 +4001,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1542011768307826}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0.00000058114523}
-  m_LocalPosition: {x: 17.83, y: 4.18, z: -4.1}
+  m_LocalPosition: {x: -10.4, y: 4.18, z: -8.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4005602054270690}

@@ -19,14 +19,6 @@ public class LeverNewMaze : MonoBehaviour {
 		anim = GetComponent<Animator> ();
 		leverHitText = "Press 'e' to use lever";
 	}
-
-	void OnRayHitBegan(){
-		hit = true;
-	}
-
-	void OnRayHitEnded(){
-		hit = false;
-	}
 		
 	void OnTriggerEnter(Collider other){
 		if (other.tag == "door") {

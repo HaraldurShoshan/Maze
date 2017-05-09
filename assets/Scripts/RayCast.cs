@@ -28,6 +28,18 @@ public class RayCast : MonoBehaviour {
 	TorchesInFirstRoom TorchNow;
 	TorchesInFirstRoom TorchLast;
 
+	Torch TorchMazeNow;
+	Torch Torchmazelast;
+
+	LeverInFirstRoom LIFRNow;
+	LeverInFirstRoom LIFRLast;
+
+	LeverFinished LFNow;
+	LeverFinished LFLast;
+
+	LeverNewMaze LNMNow;
+	LeverNewMaze LNMLast;
+
 	// Use this for initialization
 	void Start () {
 	}
@@ -42,7 +54,6 @@ public class RayCast : MonoBehaviour {
 
 			if (nowHitByRay.gameObject.tag == "Torch") {
 				TorchNow = nowHitByRay.gameObject.GetComponent<TorchesInFirstRoom> ();
-//				ts.hit = true;
 
 				if (TorchLast && TorchLast != TorchNow){
 					TorchLast.hit = false;
@@ -52,24 +63,71 @@ public class RayCast : MonoBehaviour {
 				TorchNow.hit = true;
 			}
 
+			if (nowHitByRay.gameObject.tag == "TorchInMaze") {
+				TorchMazeNow = nowHitByRay.gameObject.GetComponent<Torch> ();
 
+				if (Torchmazelast && Torchmazelast != TorchMazeNow){
+					Torchmazelast.hit = false;
+				}
 
-//			if (lastHitByRay && lastHitByRay != nowHitByRay) {
-//				lastHitByRay.SendMessage ("OnRayHitEnded");
-//			}
-//
-//			lastHitByRay = nowHitByRay;
-//			nowHitByRay.SendMessage ("OnRayHitBegan");
-			
+				Torchmazelast = TorchMazeNow;
+				TorchMazeNow.hit = true;
+			}
+
+			if (nowHitByRay.gameObject.tag == "FirstRoomLever") {
+				LIFRNow = nowHitByRay.gameObject.GetComponent<LeverInFirstRoom> ();
+
+				if (LIFRLast && LIFRLast != LIFRNow) {
+					LIFRLast.hit = false;
+				}
+
+				LIFRLast = LIFRNow;
+				LIFRNow.hit = true;
+
+			}
 				
+			if (nowHitByRay.gameObject.tag == "lever") {
+				LFNow = nowHitByRay.gameObject.GetComponent<LeverFinished> ();
 
-		} else {
+				if (LFLast && LFLast != LFNow) {
+					LFLast.hit = false;
+				}
+
+				LFLast = LFNow;
+				LFNow.hit = true;
+
+			}	
+
+			if (nowHitByRay.gameObject.tag == "LeverNewDoor") {
+				LNMNow = nowHitByRay.gameObject.GetComponent<LeverNewMaze> ();
+
+				if (LNMLast && LNMLast != LNMNow) {
+					LNMLast.hit = false;
+				}
+
+				LNMLast = LNMNow;
+				LNMNow.hit = true;
+
+			}
+
+		} 
+		else {
 			if (TorchLast) {
 				TorchLast.hit = false;
 			}
-//			if (lastHitByRay) {
-//				lastHitByRay.SendMessage ("OnRayHitEnded");	
-//			}
+			if (LIFRLast) {
+				LIFRLast.hit = false;
+			}
+			if (LFLast) {
+				LFLast.hit = false;
+			}
+			if (Torchmazelast){
+				Torchmazelast.hit = false;
+			}
+			if (LNMLast) {
+				LNMLast.hit = false;
+			}
+
 		}
 	}
 }

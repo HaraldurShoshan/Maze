@@ -15,9 +15,7 @@ public class LeverInFirstRoom : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		Tcount = GameObject.Find ("MissionCube");
-		mission = Tcount.GetComponent<torchCountMission> ();
-		hit = false;
+		mission = GetComponent<torchCountMission> ();
 		showGUI = true;
 		anim = GetComponent<Animator> ();
 		leverHitText = "Press 'e' to use lever";
@@ -25,15 +23,6 @@ public class LeverInFirstRoom : MonoBehaviour {
 
 
 	}
-
-	void OnRayHitBegan(){
-		hit = true;
-	}
-
-	void OnRayHitEnded(){
-		hit = false;
-	}
-
 	void OnTriggerEnter(Collider other){
 		if (other.tag == "door") {
 			doorAnim = other.gameObject.GetComponent<Animator> ();
@@ -51,12 +40,10 @@ public class LeverInFirstRoom : MonoBehaviour {
 				anim.SetBool ("isOpen", true);
 				doorAnim.SetBool ("isOpen", true);
 				StartCoroutine (animationWait ());
-				//			isOpen = true;
 			} else if (Input.GetKeyDown ("e") && hit && isOpen) {
 				anim.SetBool ("isOpen", false);
 				doorAnim.SetBool ("isOpen", false);
 				StartCoroutine (animationWait ());
-				//			isOpen = false;
 			}
 		}
 	}

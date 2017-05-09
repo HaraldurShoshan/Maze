@@ -8,6 +8,9 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/HalliFirstRoom.unity
     guid: 45b07bf51d36c40a5af13d4cd1deee60
-  - enabled: 1
+  - enabled: 0
     path: Assets/TestDay.unity
     guid: afab4c0e7cce4984ca21547e6b68aad7
+  - enabled: 1
+    path: Assets/FinalMaze.unity
+    guid: 8b6f93dee90554444b0f0f81e8fc4c57
