@@ -22,9 +22,11 @@ public class RayCast : MonoBehaviour {
 	public LeverNewMaze leverNewBool;
 
 	GameObject lastHitByRay;
-	RaycastHit lastHit;
 
 	GameObject player;
+
+	TorchesInFirstRoom TorchNow;
+	TorchesInFirstRoom TorchLast;
 
 	// Use this for initialization
 	void Start () {
@@ -38,46 +40,36 @@ public class RayCast : MonoBehaviour {
 
 			GameObject nowHitByRay = whatIHit.collider.gameObject;
 
-			if (lastHitByRay && lastHitByRay != nowHitByRay) {
-				lastHitByRay.SendMessage ("OnRayHitEnded");
+			if (nowHitByRay.gameObject.tag == "Torch") {
+				TorchNow = nowHitByRay.gameObject.GetComponent<TorchesInFirstRoom> ();
+//				ts.hit = true;
+
+				if (TorchLast && TorchLast != TorchNow){
+					TorchLast.hit = false;
+				}
+
+				TorchLast = TorchNow;
+				TorchNow.hit = true;
 			}
 
-			lastHitByRay = nowHitByRay;
-			nowHitByRay.SendMessage ("OnRayHitBegan");
 
-
-//			if (nowHitByRay.tag == "LeverNewDoor") {
-//				Debug.Log (nowHitByRay.gameObject.tag);
-//				nowHitByRay.SendMessage ("OnRayHitBegan");
-//			}
-
-			
-
-
-
-//			whatIHit.transform.SendMessage("OnRayHitBegan");
-//			nowHitByRay.transform.SendMessage ("OnRayHitBegan");
-//
-//			if (lastHitByRay && lastHitByRay != nowHitByRay) {
-//				lastHitByRay.transform.SendMessage ("OnRayHitEnded");
-//			} else {
-//				lastHitByRay = nowHitByRay;
-//				nowHitByRay.SendMessage("OnRayHitBegan");
-//			}
 
 //			if (lastHitByRay && lastHitByRay != nowHitByRay) {
-//				lastHitByRay.SendMessage ("hitByRayEnded");
+//				lastHitByRay.SendMessage ("OnRayHitEnded");
 //			}
 //
 //			lastHitByRay = nowHitByRay;
-//			nowHitByRay.SendMessage ("hitByRay");
-//			whatIHit.transform.SendMessage ("HitByRay");
-
+//			nowHitByRay.SendMessage ("OnRayHitBegan");
+			
+				
 
 		} else {
-			if (lastHitByRay) {
-				lastHitByRay.SendMessage ("OnRayHitEnded");
+			if (TorchLast) {
+				TorchLast.hit = false;
 			}
+//			if (lastHitByRay) {
+//				lastHitByRay.SendMessage ("OnRayHitEnded");	
+//			}
 		}
 	}
 }
