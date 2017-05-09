@@ -12,7 +12,12 @@ public class MovingPlatform : MonoBehaviour {
 	public float speed;
 	private bool inMaze = false;
 	private bool alive = true;
-	private bool enteredMaze = false;
+	public bool enteredMaze = false;
+	public bool pulledLever = false;
+	public bool moveDown = false;
+	public bool moveUp = false;
+
+	InMazeLevers lever;
 
 //	Vector3 SpawnPoint;
 //	GameObject player;
@@ -26,17 +31,23 @@ public class MovingPlatform : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		Debug.Log ("Am I in the maze? " + inMaze);
-		Debug.Log ("Am I alive? " + alive);
-		Debug.Log ("Have I entered the maze? " + enteredMaze);
 
-		if (inMaze && alive) 
+		//Debug.Log ("Pulled " + pulledLever);
+		//Debug.Log ("Am I in the maze? " + inMaze);
+		//Debug.Log ("Am I alive? " + alive);
+		//Debug.Log ("Have I entered the maze? " + enteredMaze);
+		//Debug.Log ("Down ? " + moveDown);
+
+
+
+		if (inMaze && alive && !pulledLever) 
 		{
-			speed = 0.05f;
+			speed = 0.2f;
 			transform.Translate (Vector3.up * speed * 1 * Time.deltaTime);
+			enteredMaze = true;
 		}
 
-		if (!inMaze && alive && enteredMaze) 
+		if (!inMaze && alive && enteredMaze && moveDown || pulledLever && enteredMaze && moveDown) 
 		{
 			speed = 0.2f;
 			transform.Translate (Vector3.up * speed * -1 * Time.deltaTime);
@@ -47,8 +58,10 @@ public class MovingPlatform : MonoBehaviour {
 	{
 		if (other.gameObject.CompareTag ("Player")) 
 		{
+			moveUp = true;
 			inMaze = true;
 			enteredMaze = true;
+			moveDown = false;
 		}
 
 	
@@ -66,6 +79,7 @@ public class MovingPlatform : MonoBehaviour {
 		} 
 		else if (other.tag == "LowerLimit") 
 		{	
+			moveDown = false;
 			enteredMaze = false;
 		}
 		
@@ -75,6 +89,7 @@ public class MovingPlatform : MonoBehaviour {
 	{
 		if (other.gameObject.CompareTag ("Player")) 
 		{
+			moveDown = true;
 			inMaze = false;
 		}
 	

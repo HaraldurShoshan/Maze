@@ -8,29 +8,41 @@ public class InMazeLevers : MonoBehaviour {
 	private bool waitForAnim;
 	private Animator anim;
 
+	MovingPlatform water;
+
 	// Use this for initialization
 	void Start () {
 		anim = GetComponent<Animator> ();
+		water = GameObject.Find ("Water").GetComponent<MovingPlatform> ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		
 
-		if (hit) {
-			Debug.Log ("LEVER WAS HIT");
-		}
-
-		if (Input.GetKeyDown ("e") && hit && !waitForAnim) {
-//			anim.SetBool ("pulled", true);
+		if (Input.GetKeyDown ("e") && hit && !waitForAnim) 
+		{
 			waitForAnim = true;
 			anim.SetTrigger ("pully");
+			water.moveDown = true;
+			StartCoroutine (leverWait ());
 			StartCoroutine (animationWait ());
 		}
 	}
 
-	IEnumerator animationWait(){
-
+	IEnumerator animationWait()
+	{
 		yield return new WaitForSeconds (12);
+		water.pulledLever = false;
 		waitForAnim = false;
 	}
+
+
+	IEnumerator leverWait()
+	{
+		yield return new WaitForSeconds (0.5f);
+		water.pulledLever = true;
+	}
+
+
 }
