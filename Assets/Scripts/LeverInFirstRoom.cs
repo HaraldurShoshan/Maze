@@ -17,7 +17,7 @@ public class LeverInFirstRoom : MonoBehaviour {
 	void Start () {
 		Tcount = GameObject.Find ("MissionCube");
 		mission = Tcount.GetComponent<torchCountMission> ();
-		hit = false;
+//		hit = false;
 		showGUI = true;
 		anim = GetComponent<Animator> ();
 		leverHitText = "Press 'e' to use lever";
@@ -26,13 +26,13 @@ public class LeverInFirstRoom : MonoBehaviour {
 
 	}
 
-	void OnRayHitBegan(){
-		hit = true;
-	}
-
-	void OnRayHitEnded(){
-		hit = false;
-	}
+//	void OnRayHitBegan(){
+//		hit = true;
+//	}
+//
+//	void OnRayHitEnded(){
+//		hit = false;
+//	}
 
 	void OnTriggerEnter(Collider other){
 		if (other.tag == "door") {

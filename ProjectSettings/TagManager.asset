@@ -13,6 +13,13 @@ TagManager:
   - lever
   - FirstDoor
   - LeverFirstRoom
+  - LowerLimit
+  - Water
+  - UpperLimit
+  - LeverNewDoor
+  - Fire
+  - Torch
+  - FirstRoomLever
   layers:
   - Default
   - TransparentFX
