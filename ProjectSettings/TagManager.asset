@@ -20,6 +20,7 @@ TagManager:
   - Fire
   - Torch
   - FirstRoomLever
+  - TorchInMaze
   layers:
   - Default
   - TransparentFX
