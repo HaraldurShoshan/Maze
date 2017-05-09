@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MovingPlatform : MonoBehaviour {
 
@@ -13,9 +14,14 @@ public class MovingPlatform : MonoBehaviour {
 	private bool alive = true;
 	private bool enteredMaze = false;
 
+//	Vector3 SpawnPoint;
+//	GameObject player;
+
 	void Start(){
 		SoundSource = GetComponent<AudioSource> ();
 		volume = 0.4f;
+//		player = GameObject.FindWithTag("Player");
+//		SpawnPoint = new Vector3(-5f, 0, 0);
 	}
 	
 	// Update is called once per frame
@@ -50,6 +56,13 @@ public class MovingPlatform : MonoBehaviour {
 		{
 			SoundSource.PlayOneShot (drowning, volume);
 			alive = false;
+//			if (player.transform.position.x > 85f)
+//				SceneManager.LoadScene ("JanekTest");
+//			else if(player.transform.position.x > 96f || player.transform.position.x < 85f)
+//				player.transform.position = SpawnPoint;
+			
+			
+		
 		} 
 		else if (other.tag == "LowerLimit") 
 		{	
