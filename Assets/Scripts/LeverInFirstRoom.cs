@@ -31,7 +31,7 @@ public class LeverInFirstRoom : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if (mission.missionAccomplished) {
+		if (!mission.missionAccomplished) {
 		
 			Debug.Log ("Now you can Open the door");
 		
