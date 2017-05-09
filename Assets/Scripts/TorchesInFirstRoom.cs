@@ -7,7 +7,7 @@ public class TorchesInFirstRoom : MonoBehaviour {
 	public bool hit;
 	public bool fireOff;
 	public bool fireIsOn;
-	string lightOn;
+	string lightOn;	
 	GameObject myFire;
 
 	void Start() {

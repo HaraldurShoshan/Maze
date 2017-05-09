@@ -40,6 +40,9 @@ public class RayCast : MonoBehaviour {
 	LeverNewMaze LNMNow;
 	LeverNewMaze LNMLast;
 
+	InMazeLevers IMLNow;
+	InMazeLevers IMLLast;
+
 	// Use this for initialization
 	void Start () {
 	}
@@ -95,7 +98,6 @@ public class RayCast : MonoBehaviour {
 
 				LFLast = LFNow;
 				LFNow.hit = true;
-
 			}	
 
 			if (nowHitByRay.gameObject.tag == "LeverNewDoor") {
@@ -107,9 +109,18 @@ public class RayCast : MonoBehaviour {
 
 				LNMLast = LNMNow;
 				LNMNow.hit = true;
-
 			}
 
+			if (nowHitByRay.gameObject.tag == "LeverInMaze") {
+				IMLNow = nowHitByRay.gameObject.GetComponent<InMazeLevers> ();
+
+				if (IMLLast && IMLLast != IMLNow) {
+					IMLLast.hit = false;
+				}
+
+				IMLLast = IMLNow;
+				IMLNow.hit = true;
+			}
 		} 
 		else {
 			if (TorchLast) {
@@ -126,6 +137,9 @@ public class RayCast : MonoBehaviour {
 			}
 			if (LNMLast) {
 				LNMLast.hit = false;
+			}
+			if (IMLLast) {
+				IMLLast.hit = false;
 			}
 
 		}

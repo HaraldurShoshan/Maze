@@ -21,6 +21,7 @@ TagManager:
   - Torch
   - FirstRoomLever
   - TorchInMaze
+  - LeverInMaze
   layers:
   - Default
   - TransparentFX

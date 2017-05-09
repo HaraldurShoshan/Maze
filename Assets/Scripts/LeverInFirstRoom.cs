@@ -6,7 +6,6 @@ public class LeverInFirstRoom : MonoBehaviour {
 
 	private Animator anim;
 	private Animator doorAnim;
-	private bool showGUI;
 	public bool hit;
 	private bool isOpen;
 	torchCountMission mission;
@@ -16,7 +15,6 @@ public class LeverInFirstRoom : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		mission = GetComponent<torchCountMission> ();
-		showGUI = true;
 		anim = GetComponent<Animator> ();
 		leverHitText = "Press 'e' to use lever";
 
