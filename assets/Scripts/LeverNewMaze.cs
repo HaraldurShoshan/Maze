@@ -17,7 +17,7 @@ public class LeverNewMaze : MonoBehaviour {
 		hit = false;
 		showGUI = true;
 		anim = GetComponent<Animator> ();
-		leverHitText = "Press 'e' to pull lever down";
+		leverHitText = "Press 'e' to use lever";
 	}
 
 	void OnRayHitBegan(){
@@ -39,17 +39,33 @@ public class LeverNewMaze : MonoBehaviour {
 		if (Input.GetKeyDown ("e") && hit && !isOpen) {
 			anim.SetBool ("isOpen", true);
 			doorAnim.SetBool ("isOpen", true);
-			isOpen = true;
+			StartCoroutine(animationWait ());
+//			isOpen = true;
 		} else if (Input.GetKeyDown ("e") && hit && isOpen) {
 			anim.SetBool ("isOpen", false);
 			doorAnim.SetBool ("isOpen", false);
-			isOpen = false;
+			StartCoroutine(animationWait ());
+//			isOpen = false;
 		}
 	}
 			
 	void OnGUI()
 	{
 		if (hit)
-			GUI.Box (new Rect(Screen.width / 2 , Screen.height / 2, 200, 22), leverHitText);
+			GUI.Box (new Rect( ((Screen.width / 2)-100) , Screen.height / 2, 200, 22), leverHitText);
 	}
+
+	IEnumerator animationWait(){
+		
+		yield return new WaitForSeconds (4);
+		if (isOpen) {
+			Debug.Log ("true");
+			isOpen = false;
+		} else {
+			Debug.Log ("false");
+			isOpen = true;
+		}
+	}
+
+
 }

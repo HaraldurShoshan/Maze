@@ -22,7 +22,6 @@ public class RayCast : MonoBehaviour {
 	public LeverNewMaze leverNewBool;
 
 	GameObject lastHitByRay;
-	RaycastHit lastHit;
 
 	GameObject player;
 
@@ -38,45 +37,35 @@ public class RayCast : MonoBehaviour {
 
 			GameObject nowHitByRay = whatIHit.collider.gameObject;
 
+			if (whatIHit.collider.tag == "Fire") {
+				Debug.Log ("Fires");
+			}
+
 			if (lastHitByRay && lastHitByRay != nowHitByRay) {
-				lastHitByRay.SendMessage ("OnRayHitEnded");
+
+				try {
+					lastHitByRay.SendMessage ("OnRayHitEnded");
+				} catch (System.Exception ex) {
+					Debug.Log (ex);
+				}
 			}
 
 			lastHitByRay = nowHitByRay;
-			nowHitByRay.SendMessage ("OnRayHitBegan");
-
-
-//			if (nowHitByRay.tag == "LeverNewDoor") {
-//				Debug.Log (nowHitByRay.gameObject.tag);
-//				nowHitByRay.SendMessage ("OnRayHitBegan");
-//			}
-
-			
-
-
-
-//			whatIHit.transform.SendMessage("OnRayHitBegan");
-//			nowHitByRay.transform.SendMessage ("OnRayHitBegan");
-//
-//			if (lastHitByRay && lastHitByRay != nowHitByRay) {
-//				lastHitByRay.transform.SendMessage ("OnRayHitEnded");
-//			} else {
-//				lastHitByRay = nowHitByRay;
-//				nowHitByRay.SendMessage("OnRayHitBegan");
-//			}
-
-//			if (lastHitByRay && lastHitByRay != nowHitByRay) {
-//				lastHitByRay.SendMessage ("hitByRayEnded");
-//			}
-//
-//			lastHitByRay = nowHitByRay;
-//			nowHitByRay.SendMessage ("hitByRay");
-//			whatIHit.transform.SendMessage ("HitByRay");
-
+			try {
+				nowHitByRay.SendMessage ("OnRayHitBegan");
+			} catch (System.Exception ex) {
+				Debug.Log (ex);
+			}
+				
 
 		} else {
 			if (lastHitByRay) {
-				lastHitByRay.SendMessage ("OnRayHitEnded");
+				try {
+					lastHitByRay.SendMessage ("OnRayHitEnded");	
+				} catch (System.Exception ex) {
+					Debug.Log (ex);
+				}
+
 			}
 		}
 	}
