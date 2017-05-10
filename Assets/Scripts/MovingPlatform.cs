@@ -6,25 +6,28 @@ using UnityEngine.SceneManagement;
 public class MovingPlatform : MonoBehaviour {
 
 	public AudioClip drowning;
+	public AudioClip waterSound;
 	AudioSource SoundSource;
-	public float volume;
 
 	public float speed;
-	private bool inMaze = false;
-	private bool alive = true;
+	public bool inMaze = false;
+	public bool alive = true;
 	public bool enteredMaze = false;
 	public bool pulledLever = false;
 	public bool moveDown = false;
 	public bool moveUp = false;
+	public bool slower = false;
 
 	InMazeLevers lever;
+
+
+	
 
 //	Vector3 SpawnPoint;
 //	GameObject player;
 
 	void Start(){
 		SoundSource = GetComponent<AudioSource> ();
-		volume = 0.4f;
 //		player = GameObject.FindWithTag("Player");
 //		SpawnPoint = new Vector3(-5f, 0, 0);
 	}
@@ -37,17 +40,18 @@ public class MovingPlatform : MonoBehaviour {
 		//Debug.Log ("Am I alive? " + alive);
 		//Debug.Log ("Have I entered the maze? " + enteredMaze);
 		//Debug.Log ("Down ? " + moveDown);
+		Debug.Log("Slower? " + slower);
 
 
 
 		if (inMaze && alive && !pulledLever) 
 		{
-			speed = 0.2f;
+			speed = 0.1f;
 			transform.Translate (Vector3.up * speed * 1 * Time.deltaTime);
 			enteredMaze = true;
 		}
 
-		if (!inMaze && alive && enteredMaze && moveDown || pulledLever && enteredMaze && moveDown) 
+		if ((!inMaze && alive && enteredMaze && moveDown) || (pulledLever && enteredMaze && moveDown)) 
 		{
 			speed = 0.2f;
 			transform.Translate (Vector3.up * speed * -1 * Time.deltaTime);
@@ -58,24 +62,26 @@ public class MovingPlatform : MonoBehaviour {
 	{
 		if (other.gameObject.CompareTag ("Player")) 
 		{
+			SoundSource.PlayOneShot(waterSound, 0.005f);
 			moveUp = true;
 			inMaze = true;
 			enteredMaze = true;
 			moveDown = false;
 		}
 
-	
+		if(other.tag == "Slower")
+		{
+			slower = true;
+		}
+
 		if (other.tag == "UpperLimit") 
 		{
-			SoundSource.PlayOneShot (drowning, volume);
+			SoundSource.PlayOneShot (drowning, 0.4f);
 			alive = false;
 //			if (player.transform.position.x > 85f)
 //				SceneManager.LoadScene ("JanekTest");
 //			else if(player.transform.position.x > 96f || player.transform.position.x < 85f)
-//				player.transform.position = SpawnPoint;
-			
-			
-		
+//				player.transform.position = SpawnPoint;								
 		} 
 		else if (other.tag == "LowerLimit") 
 		{	
@@ -91,6 +97,11 @@ public class MovingPlatform : MonoBehaviour {
 		{
 			moveDown = true;
 			inMaze = false;
+		}
+
+		if(other.tag == "Slower")
+		{
+			slower = false;
 		}
 	
 	}		

@@ -45,6 +45,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private bool m_Jumping;
         private AudioSource m_AudioSource;
 
+        MovingPlatform water;
 
 	
         // Use this for initialization
@@ -60,6 +61,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_Jumping = false;
             m_AudioSource = GetComponent<AudioSource>();
 			m_MouseLook.Init(transform , m_Camera.transform);
+
+            water = GameObject.Find("Water").GetComponent<MovingPlatform>();
 
 		}
 
@@ -88,8 +91,16 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
             m_PreviouslyGrounded = m_CharacterController.isGrounded;
 
-
+			if (water.slower) {
+				m_WalkSpeed = 3.5f;
+			} 
+			else 
+			{
+				m_WalkSpeed = 5.0f;
+			}
         }
+
+
 
 
         private void PlayLandingSound()
