@@ -15,8 +15,8 @@ public class MovingPlatform : MonoBehaviour {
 	public bool enteredMaze = false;
 	public bool pulledLever = false;
 	public bool moveDown = false;
-	public bool moveUp = false;
 	public bool slower = false;
+	public bool stop = false;
 
 	InMazeLevers lever;
 
@@ -43,15 +43,15 @@ public class MovingPlatform : MonoBehaviour {
 		Debug.Log("Slower? " + slower);
 
 
-
 		if (inMaze && alive && !pulledLever) 
 		{
 			speed = 0.1f;
 			transform.Translate (Vector3.up * speed * 1 * Time.deltaTime);
 			enteredMaze = true;
+			stop = false;
 		}
 
-		if ((!inMaze && alive && enteredMaze && moveDown) || (pulledLever && enteredMaze && moveDown)) 
+		if ((!inMaze && alive && enteredMaze && !stop) || (pulledLever && enteredMaze && !stop)) 
 		{
 			speed = 0.2f;
 			transform.Translate (Vector3.up * speed * -1 * Time.deltaTime);
@@ -63,7 +63,6 @@ public class MovingPlatform : MonoBehaviour {
 		if (other.gameObject.CompareTag ("Player")) 
 		{
 			SoundSource.PlayOneShot(waterSound, 0.005f);
-			moveUp = true;
 			inMaze = true;
 			enteredMaze = true;
 			moveDown = false;
@@ -85,6 +84,7 @@ public class MovingPlatform : MonoBehaviour {
 		} 
 		else if (other.tag == "LowerLimit") 
 		{	
+			stop = true;
 			moveDown = false;
 			enteredMaze = false;
 		}
