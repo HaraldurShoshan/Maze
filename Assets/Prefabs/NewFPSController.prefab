@@ -57,6 +57,7 @@ GameObject:
   - component: {fileID: 20361655289102124}
   - component: {fileID: 81990402246291760}
   - component: {fileID: 124882971938764446}
+  - component: {fileID: 114435672991293380}
   m_Layer: 0
   m_Name: FirstPersonCharacter
   m_TagString: MainCamera
@@ -71,7 +72,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1328933954634292}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.98, z: 0}
+  m_LocalPosition: {x: 18.73, y: 0.98, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4803082801919706}
@@ -279,6 +280,24 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &114435672991293380
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1954548206804622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b18262f90b18a4323b204ce2f7e1b87d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToSee: 2
+  shader1: {fileID: 0}
+  shader2: {fileID: 0}
+  rend: {fileID: 0}
+  torchBool: {fileID: 0}
+  leverBool: {fileID: 0}
+  leverNewBool: {fileID: 0}
 --- !u!114 &114910845429784638
 MonoBehaviour:
   m_ObjectHideFlags: 1
