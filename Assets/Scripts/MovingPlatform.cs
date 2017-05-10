@@ -18,11 +18,6 @@ public class MovingPlatform : MonoBehaviour {
 	public bool slower = false;
 	public bool stop = false;
 
-	InMazeLevers lever;
-
-
-	
-
 //	Vector3 SpawnPoint;
 //	GameObject player;
 
@@ -40,18 +35,18 @@ public class MovingPlatform : MonoBehaviour {
 		//Debug.Log ("Am I alive? " + alive);
 		//Debug.Log ("Have I entered the maze? " + enteredMaze);
 		//Debug.Log ("Down ? " + moveDown);
-		Debug.Log("Slower? " + slower);
+		//Debug.Log("Slower? " + slower);
 
 
 		if (inMaze && alive && !pulledLever) 
 		{
-			speed = 0.1f;
+			speed = 0.045f;
 			transform.Translate (Vector3.up * speed * 1 * Time.deltaTime);
 			enteredMaze = true;
 			stop = false;
 		}
 
-		if ((!inMaze && alive && enteredMaze && !stop) || (pulledLever && enteredMaze && !stop)) 
+		if ((!inMaze && alive && enteredMaze && !stop) || (pulledLever && enteredMaze && !stop && alive)) 
 		{
 			speed = 0.2f;
 			transform.Translate (Vector3.up * speed * -1 * Time.deltaTime);
