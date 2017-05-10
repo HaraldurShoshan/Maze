@@ -9,6 +9,7 @@ public class InGameMenu : MonoBehaviour {
 	public Button resumeText;
 	public Button quitText;
 	bool paused;
+	List<AudioSource> inGameAudio = new List<AudioSource> ();
 
 	// Use this for initialization
 	void Start () {
@@ -18,11 +19,14 @@ public class InGameMenu : MonoBehaviour {
 		resumeText = resumeText.GetComponent<Button>();
 		quitText = quitText.GetComponent<Button>();
 
+		foreach (AudioSource go in GameObject.FindObjectsOfType(typeof(AudioSource))) {
+			inGameAudio.Add (go);
+		}
+
 	}
 
 	public void StartLevel(){
-		paused = false;
-		pauseMenu.enabled = false;
+		gameUnPaused ();
 	}
 
 	public void ExitGame(){
@@ -33,11 +37,37 @@ public class InGameMenu : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetKeyDown (KeyCode.Escape) && !paused) {
-			pauseMenu.enabled = true;
-			paused = true;
+			gamePaused (); 
 		} else if (Input.GetKeyDown (KeyCode.Escape) && paused) {
-			pauseMenu.enabled = false;
-			paused = false;
+			gameUnPaused ();
+		}
+	}
+
+
+	void gameUnPaused(){
+		paused = false;
+		pauseMenu.enabled = false;
+
+		for (int i = 0; i < inGameAudio.Count; i++) {
+			inGameAudio [i].UnPause ();
+		}
+
+		if (Time.timeScale == 0.0f) {            
+			Time.timeScale = 1.0f; 
+		}
+	}
+
+	void gamePaused(){
+		pauseMenu.enabled = true;
+		paused = true;
+
+		if (Time.timeScale == 1.0f) {            
+			Time.timeScale = 0.0f;
+			for (int i = 0; i < inGameAudio.Count; i++) {
+				inGameAudio [i].Pause ();
+			}
+		} else {
+			Time.timeScale = 1.0f;
 		}
 	}
 }
