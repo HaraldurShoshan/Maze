@@ -19,14 +19,18 @@ public class MovingPlatform : MonoBehaviour {
 	public bool slower = false;
 	public bool stop = false;
 
-//	Vector3 SpawnPoint;
+    Vector3 SpawnPoint;
 	FirstPersonController player;
 	InMazeLevers lev;
+
+//	public LeverFinished leverFirstRoom;
+//	public LeverFinished leverSecondRoom;
+//	public LeverFinished leverThirdRoom;
 
 	void Start(){
 		SoundSource = GetComponent<AudioSource> ();
 		player = GameObject.Find ("FPSController").GetComponent<FirstPersonController>();
-//		SpawnPoint = new Vector3(-5f, 0, 0);
+		SpawnPoint = new Vector3(-5f, 0, 0);
 	}
 	
 	// Update is called once per frame
@@ -43,7 +47,7 @@ public class MovingPlatform : MonoBehaviour {
 
 		if (inMaze && alive && !pulledLever) 
 		{
-			speed = 0.045f;
+			speed = 0.08f;
 			transform.Translate (Vector3.up * speed * 1 * Time.deltaTime);
 			enteredMaze = true;
 			stop = false;
@@ -78,10 +82,28 @@ public class MovingPlatform : MonoBehaviour {
 		{
 			SoundSource.PlayOneShot (drowning, 0.4f);
 			alive = false;
-//			if (player.transform.position.x > 85f)
-//				SceneManager.LoadScene ("JanekTest");
-//			else if(player.transform.position.x > 96f || player.transform.position.x < 85f)
-//				player.transform.position = SpawnPoint;								
+
+//			if (leverFirstRoom.closed == true && leverSecondRoom.closed == true && leverThirdRoom == true) 
+//			{
+//				Debug.Log ("Trzeci");
+//				SpawnPoint = new Vector3(81, -2.7f, 16);
+//				player.transform.position = SpawnPoint;	
+//			}
+//			else if (leverFirstRoom.closed == true && leverSecondRoom.closed == true)
+//			{
+//				Debug.Log ("Drugi");
+//			    player.transform.position = SpawnPoint;	
+//			}
+//			else if (leverFirstRoom.closed == true)
+//			{
+//				Debug.Log ("Pierwszy");
+//				player.transform.position = SpawnPoint;	
+//				SpawnPoint = new Vector3(110, -2.7f, 16);
+//			}
+//			else
+//				Debug.Log ("Zaden");
+					
+
 		} 
 		else if (other.tag == "LowerLimit") 
 		{	

@@ -22,6 +22,9 @@ TagManager:
   - FirstRoomLever
   - TorchInMaze
   - LeverInMaze
+  - Slower
+  - Spawn
+  - Spawn2
   layers:
   - Default
   - TransparentFX

@@ -8,6 +8,7 @@ public class LeverFinished : MonoBehaviour {
 	private Animator doorAnim;
 	private bool showGUI;
 	public bool hit;
+	public bool closed;
 
 	string leverHitText;
 
@@ -16,6 +17,7 @@ public class LeverFinished : MonoBehaviour {
 		showGUI = true;
 		anim = GetComponent<Animator> ();
 		leverHitText = "Press 'e' to pull lever down";
+		closed = false;
 	}
 
 	void OnRayHitBegan(){
@@ -30,6 +32,10 @@ public class LeverFinished : MonoBehaviour {
 		if (other.tag == "door") {
 			doorAnim = other.gameObject.GetComponent<Animator> ();
 		}
+		if (other.tag == "Spawn") {
+			closed = true;
+		}
+
 	}
 	
 	// Update is called once per frame
