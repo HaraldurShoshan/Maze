@@ -10,6 +10,8 @@ public class LeverFinished : MonoBehaviour {
 	public bool hit;
 	public bool closed;
 
+	MovingPlatform water;
+
 	string leverHitText;
 
 	// Use this for initialization
@@ -18,6 +20,8 @@ public class LeverFinished : MonoBehaviour {
 		anim = GetComponent<Animator> ();
 		leverHitText = "Press 'e' to pull lever down";
 		closed = false;
+
+		water = GameObject.FindGameObjectWithTag ("Water").GetComponent<MovingPlatform> ();
 	}
 
 	void OnRayHitBegan(){
@@ -41,6 +45,7 @@ public class LeverFinished : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetKeyDown ("e") && hit) {
+			water.rising = false;
 			anim.SetBool ("isClosed", true);
 			doorAnim.SetBool ("isClosed", true);
 			showGUI = false;
