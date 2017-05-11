@@ -5,6 +5,9 @@ using UnityStandardAssets.Characters.FirstPerson;
 
 public class MouseLookChange : MonoBehaviour {
 
+
+
+
 	// Use this for initialization
 	void Start () {
 		
