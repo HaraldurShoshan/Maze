@@ -12,7 +12,6 @@ public class torchCountMission : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {		
-
 		foreach(GameObject go in GameObject.FindObjectsOfType(typeof(GameObject))){
 			if (go.name == "FireTorchFirstRoom") {
 				TorchesInFirstRoom ts;
