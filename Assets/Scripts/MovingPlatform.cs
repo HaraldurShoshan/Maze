@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityStandardAssets.Characters.FirstPerson;
 
 public class MovingPlatform : MonoBehaviour {
 
@@ -18,44 +19,44 @@ public class MovingPlatform : MonoBehaviour {
 	public bool slower = false;
 	public bool stop = false;
 
-	InMazeLevers lever;
-
-
-	
-
 //	Vector3 SpawnPoint;
-//	GameObject player;
+	FirstPersonController player;
+	InMazeLevers lev;
 
 	void Start(){
 		SoundSource = GetComponent<AudioSource> ();
-//		player = GameObject.FindWithTag("Player");
+		player = GameObject.Find ("FPSController").GetComponent<FirstPersonController>();
 //		SpawnPoint = new Vector3(-5f, 0, 0);
 	}
 	
 	// Update is called once per frame
 	void Update () {
-
+		
 		//Debug.Log ("Pulled " + pulledLever);
 		//Debug.Log ("Am I in the maze? " + inMaze);
 		//Debug.Log ("Am I alive? " + alive);
 		//Debug.Log ("Have I entered the maze? " + enteredMaze);
 		//Debug.Log ("Down ? " + moveDown);
-		Debug.Log("Slower? " + slower);
+		//Debug.Log("Slower? " + slower);
+
 
 
 		if (inMaze && alive && !pulledLever) 
 		{
-			speed = 0.1f;
+			speed = 0.045f;
 			transform.Translate (Vector3.up * speed * 1 * Time.deltaTime);
 			enteredMaze = true;
 			stop = false;
 		}
 
-		if ((!inMaze && alive && enteredMaze && !stop) || (pulledLever && enteredMaze && !stop)) 
+		if ((!inMaze && alive && enteredMaze && !stop) || (pulledLever && enteredMaze && !stop && alive)) 
 		{
 			speed = 0.2f;
 			transform.Translate (Vector3.up * speed * -1 * Time.deltaTime);
 		}
+
+
+
 	}
 
 	void OnTriggerEnter(Collider other)
@@ -70,7 +71,7 @@ public class MovingPlatform : MonoBehaviour {
 
 		if(other.tag == "Slower")
 		{
-			slower = true;
+			player.m_WalkSpeed = 3.5f;
 		}
 
 		if (other.tag == "UpperLimit") 
@@ -101,7 +102,8 @@ public class MovingPlatform : MonoBehaviour {
 
 		if(other.tag == "Slower")
 		{
-			slower = false;
+			player.m_WalkSpeed = 5.0f;
+
 		}
 	
 	}		

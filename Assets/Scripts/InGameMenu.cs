@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityStandardAssets.Characters.FirstPerson;
+
 
 public class InGameMenu : MonoBehaviour {
 	public Canvas pauseMenu;
@@ -10,6 +12,7 @@ public class InGameMenu : MonoBehaviour {
 	public Button quitText;
 	bool paused;
 	List<AudioSource> inGameAudio = new List<AudioSource> ();
+	FirstPersonController player;
 
 	// Use this for initialization
 	void Start () {
@@ -18,7 +21,7 @@ public class InGameMenu : MonoBehaviour {
 		pauseMenu = pauseMenu.GetComponent<Canvas> ();
 		resumeText = resumeText.GetComponent<Button>();
 		quitText = quitText.GetComponent<Button>();
-
+		player = GameObject.Find ("FPSController").GetComponent<FirstPersonController> ();
 		foreach (AudioSource go in GameObject.FindObjectsOfType(typeof(AudioSource))) {
 			inGameAudio.Add (go);
 		}
@@ -47,7 +50,7 @@ public class InGameMenu : MonoBehaviour {
 	void gameUnPaused(){
 		paused = false;
 		pauseMenu.enabled = false;
-
+		player.paused = false;
 		for (int i = 0; i < inGameAudio.Count; i++) {
 			inGameAudio [i].UnPause ();
 		}
@@ -60,6 +63,7 @@ public class InGameMenu : MonoBehaviour {
 	void gamePaused(){
 		pauseMenu.enabled = true;
 		paused = true;
+		player.paused = true;
 
 		if (Time.timeScale == 1.0f) {            
 			Time.timeScale = 0.0f;

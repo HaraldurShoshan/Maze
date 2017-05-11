@@ -32,7 +32,7 @@ public class InMazeLevers : MonoBehaviour {
 
 	IEnumerator animationWait()
 	{
-		yield return new WaitForSeconds (12);
+		yield return new WaitForSeconds (7);
 		water.pulledLever = false;
 		waitForAnim = false;
 	}
