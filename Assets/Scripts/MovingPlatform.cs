@@ -11,56 +11,37 @@ public class MovingPlatform : MonoBehaviour {
 	AudioSource SoundSource;
 
 	public float speed;
-	public bool inMaze = false;
 	public bool alive = true;
-	public bool enteredMaze = false;
 	public bool pulledLever = false;
 	public bool moveDown = false;
 	public bool slower = false;
 	public bool stop = false;
+	public bool rising = false;
 
     Vector3 SpawnPoint;
 	FirstPersonController player;
-	InMazeLevers lev;
-
-//	public LeverFinished leverFirstRoom;
-//	public LeverFinished leverSecondRoom;
-//	public LeverFinished leverThirdRoom;
 
 	void Start(){
 		SoundSource = GetComponent<AudioSource> ();
-		player = GameObject.Find ("FPSController").GetComponent<FirstPersonController>();
+		player = GameObject.FindGameObjectWithTag ("Player").GetComponent<FirstPersonController>();
 		SpawnPoint = new Vector3(-5f, 0, 0);
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
-		//Debug.Log ("Pulled " + pulledLever);
-		//Debug.Log ("Am I in the maze? " + inMaze);
-		//Debug.Log ("Am I alive? " + alive);
-		//Debug.Log ("Have I entered the maze? " + enteredMaze);
-		//Debug.Log ("Down ? " + moveDown);
-		//Debug.Log("Slower? " + slower);
 
-
-
-		if (inMaze && alive && !pulledLever) 
+		if (rising) 
 		{
-			speed = 0.08f;
+			speed = 0.045f;
 			transform.Translate (Vector3.up * speed * 1 * Time.deltaTime);
-			enteredMaze = true;
 			stop = false;
 		}
 
-		if ((!inMaze && alive && enteredMaze && !stop) || (pulledLever && enteredMaze && !stop && alive)) 
+		if (!rising && !stop)
 		{
 			speed = 0.2f;
 			transform.Translate (Vector3.up * speed * -1 * Time.deltaTime);
 		}
-
-
-
 	}
 
 	void OnTriggerEnter(Collider other)
@@ -68,8 +49,6 @@ public class MovingPlatform : MonoBehaviour {
 		if (other.gameObject.CompareTag ("Player")) 
 		{
 			SoundSource.PlayOneShot(waterSound, 0.005f);
-			inMaze = true;
-			enteredMaze = true;
 			moveDown = false;
 		}
 
@@ -109,9 +88,7 @@ public class MovingPlatform : MonoBehaviour {
 		{	
 			stop = true;
 			moveDown = false;
-			enteredMaze = false;
 		}
-		
 	}
 
 	void OnTriggerExit(Collider other)
@@ -119,15 +96,12 @@ public class MovingPlatform : MonoBehaviour {
 		if (other.gameObject.CompareTag ("Player")) 
 		{
 			moveDown = true;
-			inMaze = false;
 		}
 
 		if(other.tag == "Slower")
 		{
 			player.m_WalkSpeed = 5.0f;
-
-		}
-	
+		}	
 	}		
 }
 	

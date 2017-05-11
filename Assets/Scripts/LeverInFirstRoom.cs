@@ -12,11 +12,14 @@ public class LeverInFirstRoom : MonoBehaviour {
 	GameObject Tcount;
 	string leverHitText;
 
+	MovingPlatform water;
+
 	// Use this for initialization
 	void Start () {
 		mission = GetComponent<torchCountMission> ();
 		anim = GetComponent<Animator> ();
 		leverHitText = "Press 'e' to use lever";
+		water = GameObject.FindGameObjectWithTag ("Water").GetComponent<MovingPlatform> ();
 
 
 
@@ -35,10 +38,12 @@ public class LeverInFirstRoom : MonoBehaviour {
 		
 		
 			if (Input.GetKeyDown ("e") && hit && !isOpen) {
+				water.rising = true;
 				anim.SetBool ("isOpen", true);
 				doorAnim.SetBool ("isOpen", true);
 				StartCoroutine (animationWait ());
 			} else if (Input.GetKeyDown ("e") && hit && isOpen) {
+				water.rising = false;
 				anim.SetBool ("isOpen", false);
 				doorAnim.SetBool ("isOpen", false);
 				StartCoroutine (animationWait ());
