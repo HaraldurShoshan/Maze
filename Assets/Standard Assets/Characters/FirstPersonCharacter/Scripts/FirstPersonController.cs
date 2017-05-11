@@ -14,7 +14,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
     public class FirstPersonController : MonoBehaviour
     {
         [SerializeField] private bool m_IsWalking;
-        [SerializeField] private float m_WalkSpeed;
+        [SerializeField] public float m_WalkSpeed;
         [SerializeField] private float m_RunSpeed;
         [SerializeField] [Range(0f, 1f)] private float m_RunstepLenghten;
         [SerializeField] private float m_JumpSpeed;
@@ -44,9 +44,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private float m_NextStep;
         private bool m_Jumping;
         private AudioSource m_AudioSource;
-
-      //  MovingPlatform water;
-
 	
         // Use this for initialization
         private void Start()
@@ -61,8 +58,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_Jumping = false;
             m_AudioSource = GetComponent<AudioSource>();
 			m_MouseLook.Init(transform , m_Camera.transform);
-
-        //    water = GameObject.Find("Water").GetComponent<MovingPlatform>();
 
 		}
 
@@ -89,15 +84,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 m_MoveDir.y = 0f;
             }
 
-            m_PreviouslyGrounded = m_CharacterController.isGrounded;
-
-//			if (water.slower) {
-//				m_WalkSpeed = 3.5f;
-//			} 
-//			else 
-//			{
-//				m_WalkSpeed = 5.0f;
-//			}
+            m_PreviouslyGrounded = m_CharacterController.isGrounded;		
         }
 
 
