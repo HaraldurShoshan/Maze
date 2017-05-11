@@ -18,13 +18,11 @@ public class MovingPlatform : MonoBehaviour {
 	public bool stop = false;
 	public bool rising = false;
 
-    Vector3 SpawnPoint;
 	FirstPersonController player;
 
 	void Start(){
 		SoundSource = GetComponent<AudioSource> ();
 		player = GameObject.FindGameObjectWithTag ("Player").GetComponent<FirstPersonController>();
-		SpawnPoint = new Vector3(-5f, 0, 0);
 	}
 	
 	// Update is called once per frame
@@ -32,7 +30,7 @@ public class MovingPlatform : MonoBehaviour {
 
 		if (rising) 
 		{
-			speed = 0.045f;
+			speed = 0.1f;
 			transform.Translate (Vector3.up * speed * 1 * Time.deltaTime);
 			stop = false;
 		}
@@ -42,6 +40,7 @@ public class MovingPlatform : MonoBehaviour {
 			speed = 0.2f;
 			transform.Translate (Vector3.up * speed * -1 * Time.deltaTime);
 		}
+
 	}
 
 	void OnTriggerEnter(Collider other)
@@ -61,27 +60,6 @@ public class MovingPlatform : MonoBehaviour {
 		{
 			SoundSource.PlayOneShot (drowning, 0.4f);
 			alive = false;
-
-//			if (leverFirstRoom.closed == true && leverSecondRoom.closed == true && leverThirdRoom == true) 
-//			{
-//				Debug.Log ("Trzeci");
-//				SpawnPoint = new Vector3(81, -2.7f, 16);
-//				player.transform.position = SpawnPoint;	
-//			}
-//			else if (leverFirstRoom.closed == true && leverSecondRoom.closed == true)
-//			{
-//				Debug.Log ("Drugi");
-//			    player.transform.position = SpawnPoint;	
-//			}
-//			else if (leverFirstRoom.closed == true)
-//			{
-//				Debug.Log ("Pierwszy");
-//				player.transform.position = SpawnPoint;	
-//				SpawnPoint = new Vector3(110, -2.7f, 16);
-//			}
-//			else
-//				Debug.Log ("Zaden");
-					
 
 		} 
 		else if (other.tag == "LowerLimit") 

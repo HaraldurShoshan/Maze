@@ -8,7 +8,8 @@ public class LeverFinished : MonoBehaviour {
 	private Animator doorAnim;
 	private bool showGUI;
 	public bool hit;
-	public bool closed;
+	public bool Levelfinished;
+
 
 	MovingPlatform water;
 
@@ -19,7 +20,6 @@ public class LeverFinished : MonoBehaviour {
 		showGUI = true;
 		anim = GetComponent<Animator> ();
 		leverHitText = "Press 'e' to pull lever down";
-		closed = false;
 
 		water = GameObject.FindGameObjectWithTag ("Water").GetComponent<MovingPlatform> ();
 	}
@@ -36,10 +36,7 @@ public class LeverFinished : MonoBehaviour {
 		if (other.tag == "door") {
 			doorAnim = other.gameObject.GetComponent<Animator> ();
 		}
-		if (other.tag == "Spawn") {
-			closed = true;
-		}
-
+			
 	}
 	
 	// Update is called once per frame
@@ -49,6 +46,7 @@ public class LeverFinished : MonoBehaviour {
 			anim.SetBool ("isClosed", true);
 			doorAnim.SetBool ("isClosed", true);
 			showGUI = false;
+			Levelfinished = true;
 		}
 	}
 
