@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
 	public int LevelCounter;
@@ -18,8 +19,16 @@ public class GameManager : MonoBehaviour {
 	CanvasGroup deathAlpha;
 	private bool oneTime;
 
+	public GameObject DoorFirstRoom;
+	public GameObject DoorFirstBetween;
+	public GameObject DoorSecondBetween;
+	public GameObject DoorThirdBetween;
+
+	public GameObject leverInFirstDoor;
+
 	// Use this for initialization
 	void Start () {
+//		DontDestroyOnLoad(gameObject);
 		LevelCounter = 0;
 		SpawnPoint = new Vector3 (-5, 2f, 25);
 		deathAlpha = deathCan.GetComponent<CanvasGroup> ();
@@ -64,10 +73,14 @@ public class GameManager : MonoBehaviour {
 
 	IEnumerator Respawn()
 	{
+		DoorFirstRoom.GetComponent<Animator> ().SetBool ("isOpen", false);
+		leverInFirstDoor.GetComponent<Animator> ().SetBool ("isOpen", false);
+		leverInFirstDoor.GetComponent<LeverInFirstRoom> ().isOpen = false;
 		yield return new WaitForSeconds (9);
 		player.transform.position = SpawnPoint;
 		deathAlpha.alpha = 0.0f;
 		platform.GetComponent<MovingPlatform> ().fadeToBlack = false;
 		oneTime = false;
+//		SceneManager.LoadScene (1);
 	}
 }

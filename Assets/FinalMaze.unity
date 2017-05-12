@@ -617,6 +617,11 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 253099712}
+--- !u!1 &254306727 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1451135753018220, guid: 2e73d031cdbcf4d3ab3b44824911975b,
+    type: 2}
+  m_PrefabInternal: {fileID: 623075441}
 --- !u!4 &270124682 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4000010998463236, guid: a0304cd1c89ed5f47b1c609d88092942,
@@ -1474,7 +1479,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4803082801919706, guid: 539f30d3a1e641b4f809bf82895011e8, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -10.87
+      value: 24.13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 539f30d3a1e641b4f809bf82895011e8, type: 2}
@@ -1737,6 +1742,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 63bb0ccd27a8441ada09cd9039e30db1, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &828474724 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1451135753018220, guid: 2e73d031cdbcf4d3ab3b44824911975b,
+    type: 2}
+  m_PrefabInternal: {fileID: 1275945097}
 --- !u!4 &875241415 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4000010998463236, guid: a0304cd1c89ed5f47b1c609d88092942,
@@ -2226,6 +2236,11 @@ Transform:
   m_PrefabParentObject: {fileID: 4000010998463236, guid: a0304cd1c89ed5f47b1c609d88092942,
     type: 2}
   m_PrefabInternal: {fileID: 1666371133}
+--- !u!1 &1207321025 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1038778916506796, guid: 4e00be0dc3df8455b8309e4ed80bbd06,
+    type: 2}
+  m_PrefabInternal: {fileID: 178384001}
 --- !u!1 &1225747716
 GameObject:
   m_ObjectHideFlags: 0
@@ -2942,6 +2957,26 @@ Prefab:
       propertyPath: fadePanel
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 114782882055902008, guid: 6b66cd627a24f4237b467b048550bc38,
+        type: 2}
+      propertyPath: DoorFirstRoom
+      value: 
+      objectReference: {fileID: 1207321025}
+    - target: {fileID: 114782882055902008, guid: 6b66cd627a24f4237b467b048550bc38,
+        type: 2}
+      propertyPath: DoorFirstBetween
+      value: 
+      objectReference: {fileID: 254306727}
+    - target: {fileID: 114782882055902008, guid: 6b66cd627a24f4237b467b048550bc38,
+        type: 2}
+      propertyPath: DoorSecondBetween
+      value: 
+      objectReference: {fileID: 1791596689}
+    - target: {fileID: 114782882055902008, guid: 6b66cd627a24f4237b467b048550bc38,
+        type: 2}
+      propertyPath: DoorThirdBetween
+      value: 
+      objectReference: {fileID: 828474724}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6b66cd627a24f4237b467b048550bc38, type: 2}
   m_IsPrefabParent: 0
@@ -3503,6 +3538,11 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1790366745}
+--- !u!1 &1791596689 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1451135753018220, guid: 2e73d031cdbcf4d3ab3b44824911975b,
+    type: 2}
+  m_PrefabInternal: {fileID: 1169677472}
 --- !u!4 &1792289833 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4901970827023076, guid: 71bb880f1b3b6044e89b560b3a5b511e,
