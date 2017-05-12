@@ -14,13 +14,9 @@ public class GameManager : MonoBehaviour {
 	Vector3 SpawnPoint;
 	public GameObject player;
 	public GameObject platform;
-	public GameObject cam;
-
-	public Image fadePanel;
-	float fadeTime = 3f;
-	Color colorToFadeTo;
 	public Canvas deathCan;
 	CanvasGroup deathAlpha;
+
 	// Use this for initialization
 	void Start () {
 		LevelCounter = 0;
@@ -30,7 +26,7 @@ public class GameManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-//		deathAlpha.alpha += (0.1f * Time.deltaTime);
+		
 		if (lf_one.GetComponent<LeverFinished> ().Levelfinished && !lfFirst) {
 			LevelCounter++;
 			lfFirst = true;
@@ -63,12 +59,9 @@ public class GameManager : MonoBehaviour {
 
 	IEnumerator Respawn()
 	{
-//		cam.SetActive (true);
-
-		yield return new WaitForSeconds (6);
-		platform.GetComponent<MovingPlatform> ().alive = true;
+		yield return new WaitForSeconds (9);
 		player.transform.position = SpawnPoint;
 		deathAlpha.alpha = 0.0f;
-//		cam.SetActive (false);
+		platform.GetComponent<MovingPlatform> ().alive = true;
 	}
 }

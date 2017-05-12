@@ -23,6 +23,7 @@ public class InMazeLevers : MonoBehaviour {
 		if (Input.GetKeyDown ("e") && hit && !waitForAnim) 
 		{
 			water.rising = false;
+
 			waitForAnim = true;
 			anim.SetTrigger ("pully");
 			StartCoroutine (leverWait ());
@@ -40,7 +41,9 @@ public class InMazeLevers : MonoBehaviour {
 
 	IEnumerator leverWait()
 	{
-		yield return new WaitForSeconds (0.5f);
+		yield return new WaitForSeconds (7);
+		water.rising = true;
+		water.stop = false;
 	}
 
 

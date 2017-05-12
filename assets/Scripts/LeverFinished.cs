@@ -43,6 +43,7 @@ public class LeverFinished : MonoBehaviour {
 	void Update () {
 		if (Input.GetKeyDown ("e") && hit) {
 			water.rising = false;
+			water.stop = false;
 			anim.SetBool ("isClosed", true);
 			doorAnim.SetBool ("isClosed", true);
 			showGUI = false;

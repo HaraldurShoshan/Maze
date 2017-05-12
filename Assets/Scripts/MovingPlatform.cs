@@ -27,17 +27,21 @@ public class MovingPlatform : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
-		if (rising) 
+		if (rising && !stop) 
 		{
-			speed = 0.1f;
+			speed = 0.035f;
 			transform.Translate (Vector3.up * speed * 1 * Time.deltaTime);
-			stop = false;
 		}
 
 		if (!rising && !stop)
 		{
 			speed = 0.2f;
+			transform.Translate (Vector3.up * speed * -1 * Time.deltaTime);
+		}
+
+		if (!alive) 
+		{
+			speed = 1.0f;
 			transform.Translate (Vector3.up * speed * -1 * Time.deltaTime);
 		}
 
@@ -53,19 +57,20 @@ public class MovingPlatform : MonoBehaviour {
 
 		if(other.tag == "Slower")
 		{
-			player.m_WalkSpeed = 3.5f;
+			player.m_WalkSpeed = 3.2f;
 		}
 
 		if (other.tag == "UpperLimit") 
-		{
+		{			
 			SoundSource.PlayOneShot (drowning, 0.4f);
-			alive = false;
-
+			stop = true;
+			StartCoroutine(waitForDying ());
 		} 
 		else if (other.tag == "LowerLimit") 
 		{	
 			stop = true;
 			moveDown = false;
+			alive = true;
 		}
 	}
 
@@ -78,8 +83,14 @@ public class MovingPlatform : MonoBehaviour {
 
 		if(other.tag == "Slower")
 		{
-			player.m_WalkSpeed = 5.0f;
+			player.m_WalkSpeed = 4.2f;
 		}	
-	}		
+	}
+
+	IEnumerator waitForDying()
+	{
+		yield return new WaitForSeconds (2);
+		alive = false;
+	}
 }
 	
