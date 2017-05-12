@@ -111,3 +111,4 @@ MonoBehaviour:
   lf_three: {fileID: 0}
   player: {fileID: 0}
   platform: {fileID: 0}
+  cam: {fileID: 0}
