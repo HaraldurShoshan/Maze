@@ -19500,7 +19500,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: d0d0b7f865e3a50448df4610cf2681dd, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.535
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -19509,7 +19509,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1.6496096
-  MaxDistance: 20
+  MaxDistance: 9
   Pan2D: 0
   rolloffMode: 1
   BypassEffects: 0
@@ -20179,7 +20179,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c328a7fd231ba9d4f80455763fda2fe2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireOff: 0
+  fireDies: 0
 --- !u!114 &114179110434999244
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -20217,7 +20217,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c328a7fd231ba9d4f80455763fda2fe2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireOff: 0
+  fireDies: 0
 --- !u!114 &114211471978227906
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -20289,7 +20289,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c328a7fd231ba9d4f80455763fda2fe2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireOff: 0
+  fireDies: 0
 --- !u!114 &114387810202058050
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -20301,7 +20301,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c328a7fd231ba9d4f80455763fda2fe2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireOff: 0
+  fireDies: 0
 --- !u!114 &114397618903849728
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -20350,7 +20350,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c328a7fd231ba9d4f80455763fda2fe2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireOff: 0
+  fireDies: 0
 --- !u!114 &114508258887973954
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -20362,7 +20362,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c328a7fd231ba9d4f80455763fda2fe2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireOff: 0
+  fireDies: 0
 --- !u!114 &114531606161733988
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -20387,7 +20387,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c328a7fd231ba9d4f80455763fda2fe2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireOff: 0
+  fireDies: 0
 --- !u!114 &114660452454737208
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -20477,7 +20477,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c328a7fd231ba9d4f80455763fda2fe2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireOff: 0
+  fireDies: 0
 --- !u!114 &114886730331461440
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -20489,7 +20489,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c328a7fd231ba9d4f80455763fda2fe2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireOff: 0
+  fireDies: 0
 --- !u!114 &114888099466690614
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -20525,7 +20525,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c328a7fd231ba9d4f80455763fda2fe2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireOff: 0
+  fireDies: 0
 --- !u!114 &114979135985730882
 MonoBehaviour:
   m_ObjectHideFlags: 1

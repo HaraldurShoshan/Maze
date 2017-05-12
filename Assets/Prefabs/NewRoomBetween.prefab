@@ -3883,8 +3883,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1836331061490308}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.7667971, y: -5.348373, z: -3.0989053}
-  m_LocalScale: {x: 1.5423846, y: 1, z: 1.5069903}
+  m_LocalPosition: {x: -1.77, y: -5.35, z: -1.91}
+  m_LocalScale: {x: 1.5423882, y: 1, z: 1.2661209}
   m_Children: []
   m_Father: {fileID: 4875348320033392}
   m_RootOrder: 2
@@ -4000,9 +4000,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1542011768307826}
-  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0.00000058114523}
-  m_LocalPosition: {x: -10.4, y: 4.18, z: -8.6}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -1.2701333e-14, y: 1, z: -0.000000021855694, w: 0.00000058114523}
+  m_LocalPosition: {x: 4.3973126, y: 2.1999981, z: -29.20786}
+  m_LocalScale: {x: 0.27211097, y: 1, z: 0.7181672}
   m_Children:
   - {fileID: 4005602054270690}
   - {fileID: 4733748250703784}
@@ -9165,7 +9165,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: d0d0b7f865e3a50448df4610cf2681dd, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.535
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -9174,7 +9174,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1.6496096
-  MaxDistance: 20
+  MaxDistance: 7
   Pan2D: 0
   rolloffMode: 1
   BypassEffects: 0
@@ -9325,7 +9325,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: d0d0b7f865e3a50448df4610cf2681dd, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.535
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -9334,7 +9334,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1.6496096
-  MaxDistance: 20
+  MaxDistance: 7
   Pan2D: 0
   rolloffMode: 1
   BypassEffects: 0
@@ -9638,13 +9638,14 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1366442166921786}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0d2f1175dfdc74235929dc4946ae6e87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   hit: 0
   fireOff: 0
+  fireIsOn: 0
 --- !u!114 &114680765495565078
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -9687,13 +9688,14 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1227964850338536}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0d2f1175dfdc74235929dc4946ae6e87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   hit: 0
   fireOff: 0
+  fireIsOn: 0
 --- !u!114 &114983750230983286
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -9706,6 +9708,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hit: 0
+  Levelfinished: 0
 --- !u!136 &136166390230106746
 CapsuleCollider:
   m_ObjectHideFlags: 1
