@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour {
 	Vector3 SpawnPoint;
 	public GameObject player;
 	public GameObject platform;
+	public GameObject cam;
 	// Use this for initialization
 	void Start () {
 		LevelCounter = 0;
@@ -54,7 +55,9 @@ public class GameManager : MonoBehaviour {
 
 	IEnumerator Respawn()
 	{
+		cam.SetActive (true);
 		yield return new WaitForSeconds (6);
 		player.transform.position = SpawnPoint;
+		cam.SetActive (false);
 	}
 }
