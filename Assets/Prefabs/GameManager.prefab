@@ -111,4 +111,9 @@ MonoBehaviour:
   lf_three: {fileID: 0}
   player: {fileID: 0}
   platform: {fileID: 0}
-  cam: {fileID: 0}
+  deathCan: {fileID: 0}
+  DoorFirstRoom: {fileID: 0}
+  DoorFirstBetween: {fileID: 0}
+  DoorSecondBetween: {fileID: 0}
+  DoorThirdBetween: {fileID: 0}
+  leverInFirstDoor: {fileID: 0}

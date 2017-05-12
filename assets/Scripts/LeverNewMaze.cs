@@ -7,7 +7,7 @@ public class LeverNewMaze : MonoBehaviour {
 	private Animator anim;
 	private Animator doorAnim;
 	public bool hit;
-	private bool isOpen;
+	public bool isOpen;
 
 	string leverHitText;
 

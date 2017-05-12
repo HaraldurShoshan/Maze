@@ -25,38 +25,43 @@ public class GameManager : MonoBehaviour {
 	public GameObject DoorThirdBetween;
 
 	public GameObject leverInFirstDoor;
+	public GameObject leverRoomBetween1;
+	public GameObject leverRoomBetween2;
+	public GameObject leverRoomBetween3;
 
 	// Use this for initialization
 	void Start () {
-//		DontDestroyOnLoad(gameObject);
+		//		DontDestroyOnLoad(gameObject);
 		LevelCounter = 0;
-		SpawnPoint = new Vector3 (-5, 2f, 25);
+		//		SpawnPoint = new Vector3 (-5, 2f, 25);
+		SpawnPoint = new Vector3 (13.1f, -0.4f, -44.4f);
+
 		deathAlpha = deathCan.GetComponent<CanvasGroup> ();
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
-		
+
 		if (lf_one.GetComponent<LeverFinished> ().Levelfinished && !lfFirst) {
 			LevelCounter++;
 			lfFirst = true;
 			SpawnPoint = new Vector3 (-4.8f, -0.4f, -11.5f);
 			Debug.Log ("First");
-		
+
 		}
 		if (lf_two.GetComponent<LeverFinished> ().Levelfinished && !lfSecond) {
 			LevelCounter++;
 			lfSecond = true;
 			SpawnPoint = new Vector3 (13.1f, -0.4f, -44.4f);
 			Debug.Log ("Second");
-		
+
 		}
 		if (lf_three.GetComponent<LeverFinished> ().Levelfinished && !lfThird) {
 			LevelCounter++;
 			lfThird = true;
 			SpawnPoint = new Vector3 (-11.7f, -0.4f, -72.9f);
 			Debug.Log ("Third");
-		
+
 		}
 		if (platform.GetComponent<MovingPlatform>().fadeToBlack && !oneTime) {
 			oneTime = true;
@@ -76,11 +81,26 @@ public class GameManager : MonoBehaviour {
 		DoorFirstRoom.GetComponent<Animator> ().SetBool ("isOpen", false);
 		leverInFirstDoor.GetComponent<Animator> ().SetBool ("isOpen", false);
 		leverInFirstDoor.GetComponent<LeverInFirstRoom> ().isOpen = false;
+
+		DoorFirstBetween.GetComponent<Animator> ().SetBool ("isOpen", false);
+		leverRoomBetween1.GetComponent<Animator> ().SetBool ("isOpen", false);
+		leverRoomBetween1.GetComponent<LeverNewMaze> ().isOpen = false;
+
+		DoorSecondBetween.GetComponent<Animator> ().SetBool ("isOpen", false);
+		leverRoomBetween2.GetComponent<Animator> ().SetBool ("isOpen", false);
+		leverRoomBetween2.GetComponent<LeverNewMaze> ().isOpen = false;
+
+		DoorThirdBetween.GetComponent<Animator> ().SetBool ("isOpen", false);
+		leverRoomBetween3.GetComponent<Animator> ().SetBool ("isOpen", false);
+		leverRoomBetween3.GetComponent<LeverNewMaze> ().isOpen = false;
+
 		yield return new WaitForSeconds (9);
 		player.transform.position = SpawnPoint;
 		deathAlpha.alpha = 0.0f;
 		platform.GetComponent<MovingPlatform> ().fadeToBlack = false;
 		oneTime = false;
-//		SceneManager.LoadScene (1);
+		//		SceneManager.LoadScene (1);
 	}
+
+
 }
