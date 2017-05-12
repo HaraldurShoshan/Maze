@@ -56,7 +56,7 @@ public class GameManager : MonoBehaviour {
 	IEnumerator Respawn()
 	{
 		cam.SetActive (true);
-		yield return new WaitForSeconds (6);
+		yield return new WaitForSeconds (9);
 		player.transform.position = SpawnPoint;
 		cam.SetActive (false);
 	}
