@@ -7,7 +7,7 @@ public class LeverInFirstRoom : MonoBehaviour {
 	private Animator anim;
 	private Animator doorAnim;
 	public bool hit;
-	private bool isOpen;
+	public bool isOpen;
 	torchCountMission mission;
 	GameObject Tcount;
 	string leverHitText;
