@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour {
 	public int LevelCounter;
@@ -14,15 +15,22 @@ public class GameManager : MonoBehaviour {
 	public GameObject player;
 	public GameObject platform;
 	public GameObject cam;
+
+	public Image fadePanel;
+	float fadeTime = 3f;
+	Color colorToFadeTo;
+	public Canvas deathCan;
+	CanvasGroup deathAlpha;
 	// Use this for initialization
 	void Start () {
 		LevelCounter = 0;
 		SpawnPoint = new Vector3 (-5, -0.4f, 25);
+		deathAlpha = deathCan.GetComponent<CanvasGroup> ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-
+//		deathAlpha.alpha += (0.1f * Time.deltaTime);
 		if (lf_one.GetComponent<LeverFinished> ().Levelfinished && !lfFirst) {
 			LevelCounter++;
 			lfFirst = true;
@@ -45,9 +53,9 @@ public class GameManager : MonoBehaviour {
 		
 		}
 		if (!platform.GetComponent<MovingPlatform>().alive) {
-			
+			deathAlpha.alpha += (0.4f * Time.deltaTime);
 			StartCoroutine (Respawn ());
-			platform.GetComponent<MovingPlatform> ().alive = true;
+
 
 		}
 		Debug.Log (LevelCounter);
@@ -55,9 +63,12 @@ public class GameManager : MonoBehaviour {
 
 	IEnumerator Respawn()
 	{
-		cam.SetActive (true);
+//		cam.SetActive (true);
+
 		yield return new WaitForSeconds (6);
+		platform.GetComponent<MovingPlatform> ().alive = true;
 		player.transform.position = SpawnPoint;
-		cam.SetActive (false);
+		deathAlpha.alpha = 0.0f;
+//		cam.SetActive (false);
 	}
 }
