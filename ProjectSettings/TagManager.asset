@@ -25,6 +25,7 @@ TagManager:
   - Slower
   - Spawn
   - Spawn2
+  - TorchText
   layers:
   - Default
   - TransparentFX

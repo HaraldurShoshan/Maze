@@ -19,5 +19,6 @@ public class tutorialBox : MonoBehaviour {
 			tt.display = true;
 			display = true;
 		}
+
 	}
 }

@@ -144,8 +144,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1686917877619366}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.58, y: 0.34, z: -12}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -89.9, y: -1.15, z: -72.8}
+  m_LocalScale: {x: 5, y: 1, z: 5}
   m_Children:
   - {fileID: 4916828244193442}
   - {fileID: 4565933425885592}
@@ -390,13 +390,12 @@ MonoBehaviour:
   drowning: {fileID: 8300000, guid: dd67729488fad3f49b518470efc21d4e, type: 3}
   waterSound: {fileID: 8300000, guid: f059eb531a66210459300946e7e11239, type: 3}
   speed: 0.15
-  inMaze: 0
   alive: 1
-  enteredMaze: 0
   pulledLever: 0
   moveDown: 0
   slower: 0
   stop: 0
+  rising: 0
 --- !u!114 &114562393561814516
 MonoBehaviour:
   m_ObjectHideFlags: 1
