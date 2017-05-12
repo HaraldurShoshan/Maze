@@ -16,11 +16,12 @@ public class GameManager : MonoBehaviour {
 	public GameObject platform;
 	public Canvas deathCan;
 	CanvasGroup deathAlpha;
+	private bool oneTime;
 
 	// Use this for initialization
 	void Start () {
 		LevelCounter = 0;
-		SpawnPoint = new Vector3 (-5, -0.4f, 25);
+		SpawnPoint = new Vector3 (-5, 2f, 25);
 		deathAlpha = deathCan.GetComponent<CanvasGroup> ();
 	}
 	
@@ -48,12 +49,16 @@ public class GameManager : MonoBehaviour {
 			Debug.Log ("Third");
 		
 		}
-		if (!platform.GetComponent<MovingPlatform>().alive) {
-			deathAlpha.alpha += (0.4f * Time.deltaTime);
+		if (platform.GetComponent<MovingPlatform>().fadeToBlack && !oneTime) {
+			oneTime = true;
 			StartCoroutine (Respawn ());
-
-
 		}
+
+		if (platform.GetComponent<MovingPlatform> ().fadeToBlack) {
+			deathAlpha.alpha += (0.6f * Time.deltaTime);
+		}
+
+
 		Debug.Log (LevelCounter);
 	}
 
@@ -62,6 +67,7 @@ public class GameManager : MonoBehaviour {
 		yield return new WaitForSeconds (9);
 		player.transform.position = SpawnPoint;
 		deathAlpha.alpha = 0.0f;
-		platform.GetComponent<MovingPlatform> ().alive = true;
+		platform.GetComponent<MovingPlatform> ().fadeToBlack = false;
+		oneTime = false;
 	}
 }

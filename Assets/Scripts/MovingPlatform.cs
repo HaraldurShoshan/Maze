@@ -17,6 +17,7 @@ public class MovingPlatform : MonoBehaviour {
 	public bool slower = false;
 	public bool stop = false;
 	public bool rising = false;
+	public bool fadeToBlack = false;
 
 	FirstPersonController player;
 
@@ -29,7 +30,7 @@ public class MovingPlatform : MonoBehaviour {
 	void Update () {
 		if (rising && !stop) 
 		{
-			speed = 0.035f;
+			speed = 0.25f;
 			transform.Translate (Vector3.up * speed * 1 * Time.deltaTime);
 		}
 
@@ -64,6 +65,7 @@ public class MovingPlatform : MonoBehaviour {
 		{			
 			SoundSource.PlayOneShot (drowning, 0.4f);
 			stop = true;
+			fadeToBlack = true;
 			StartCoroutine(waitForDying ());
 		} 
 		else if (other.tag == "LowerLimit") 
