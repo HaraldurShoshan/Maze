@@ -31,6 +31,7 @@ public class LeverNewMaze : MonoBehaviour {
 	void Update () {
 		if (Input.GetKeyDown ("e") && hit && !isOpen) {
 			water.rising = true;
+			water.stop = false;
 			anim.SetBool ("isOpen", true);
 			doorAnim.SetBool ("isOpen", true);
 			StartCoroutine(animationWait ());

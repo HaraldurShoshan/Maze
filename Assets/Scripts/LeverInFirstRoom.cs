@@ -39,6 +39,7 @@ public class LeverInFirstRoom : MonoBehaviour {
 		
 			if (Input.GetKeyDown ("e") && hit && !isOpen) {
 				water.rising = true;
+				water.stop = false;
 				anim.SetBool ("isOpen", true);
 				doorAnim.SetBool ("isOpen", true);
 				StartCoroutine (animationWait ());
