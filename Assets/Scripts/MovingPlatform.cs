@@ -39,6 +39,12 @@ public class MovingPlatform : MonoBehaviour {
 			transform.Translate (Vector3.up * speed * -1 * Time.deltaTime);
 		}
 
+		if (!alive) 
+		{
+			speed = 1.0f;
+			transform.Translate (Vector3.up * speed * -1 * Time.deltaTime);
+		}
+
 	}
 
 	void OnTriggerEnter(Collider other)
@@ -57,15 +63,14 @@ public class MovingPlatform : MonoBehaviour {
 		if (other.tag == "UpperLimit") 
 		{			
 			SoundSource.PlayOneShot (drowning, 0.4f);
-			alive = false;
 			stop = true;
 			StartCoroutine(waitForDying ());
-
 		} 
 		else if (other.tag == "LowerLimit") 
 		{	
 			stop = true;
 			moveDown = false;
+			alive = true;
 		}
 	}
 
@@ -84,9 +89,8 @@ public class MovingPlatform : MonoBehaviour {
 
 	IEnumerator waitForDying()
 	{
-		yield return new WaitForSeconds (3);
-		rising = false;
-		stop = false;
+		yield return new WaitForSeconds (2);
+		alive = false;
 	}
 }
 	
