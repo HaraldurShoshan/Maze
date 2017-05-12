@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour {
 	public int LevelCounter;
@@ -13,16 +14,20 @@ public class GameManager : MonoBehaviour {
 	Vector3 SpawnPoint;
 	public GameObject player;
 	public GameObject platform;
-	public GameObject cam;
+	public Canvas deathCan;
+	CanvasGroup deathAlpha;
+	private bool oneTime;
+
 	// Use this for initialization
 	void Start () {
 		LevelCounter = 0;
-		SpawnPoint = new Vector3 (-5, -0.4f, 25);
+		SpawnPoint = new Vector3 (-5, 2f, 25);
+		deathAlpha = deathCan.GetComponent<CanvasGroup> ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-
+		
 		if (lf_one.GetComponent<LeverFinished> ().Levelfinished && !lfFirst) {
 			LevelCounter++;
 			lfFirst = true;
@@ -44,20 +49,25 @@ public class GameManager : MonoBehaviour {
 			Debug.Log ("Third");
 		
 		}
-		if (!platform.GetComponent<MovingPlatform>().alive) {
-			
+		if (platform.GetComponent<MovingPlatform>().fadeToBlack && !oneTime) {
+			oneTime = true;
 			StartCoroutine (Respawn ());
-			platform.GetComponent<MovingPlatform> ().alive = true;
-
 		}
+
+		if (platform.GetComponent<MovingPlatform> ().fadeToBlack) {
+			deathAlpha.alpha += (0.6f * Time.deltaTime);
+		}
+
+
 		Debug.Log (LevelCounter);
 	}
 
 	IEnumerator Respawn()
 	{
-		cam.SetActive (true);
 		yield return new WaitForSeconds (9);
 		player.transform.position = SpawnPoint;
-		cam.SetActive (false);
+		deathAlpha.alpha = 0.0f;
+		platform.GetComponent<MovingPlatform> ().fadeToBlack = false;
+		oneTime = false;
 	}
 }
