@@ -5,19 +5,24 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
-	public int LevelCounter;
+	
 	public GameObject lf_one;
 	public GameObject lf_two;
 	public GameObject lf_three;
+	public GameObject player;
+	public GameObject platform;
+
+
 	private bool lfFirst;
 	private bool lfSecond;
 	private bool lfThird;
-	Vector3 SpawnPoint;
-	public GameObject player;
-	public GameObject platform;
+	private bool oneTime;
+
+	public int LevelCounter;
+
 	public Canvas deathCan;
 	CanvasGroup deathAlpha;
-	private bool oneTime;
+	Vector3 SpawnPoint;
 
 	public GameObject DoorFirstRoom;
 	public GameObject DoorFirstBetween;
@@ -46,6 +51,7 @@ public class GameManager : MonoBehaviour {
 			LevelCounter++;
 			lfFirst = true;
 			SpawnPoint = new Vector3 (-4.8f, -0.4f, -11.5f);
+			leverRoomBetween1.GetComponent<LeverNewMaze> ().canUse = true;
 			Debug.Log ("First");
 
 		}
@@ -53,6 +59,7 @@ public class GameManager : MonoBehaviour {
 			LevelCounter++;
 			lfSecond = true;
 			SpawnPoint = new Vector3 (13.1f, -0.4f, -44.4f);
+			leverRoomBetween2.GetComponent<LeverNewMaze> ().canUse = true;
 			Debug.Log ("Second");
 
 		}
@@ -60,6 +67,7 @@ public class GameManager : MonoBehaviour {
 			LevelCounter++;
 			lfThird = true;
 			SpawnPoint = new Vector3 (-11.7f, -0.4f, -72.9f);
+			leverRoomBetween3.GetComponent<LeverNewMaze> ().canUse = true;
 			Debug.Log ("Third");
 
 		}

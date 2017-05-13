@@ -8,6 +8,7 @@ public class LeverNewMaze : MonoBehaviour {
 	private Animator doorAnim;
 	public bool hit;
 	public bool isOpen;
+	public bool canUse;
 
 	string leverHitText;
 
@@ -29,26 +30,28 @@ public class LeverNewMaze : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKeyDown ("e") && hit && !isOpen) {
-			water.rising = true;
-			water.stop = false;
-			anim.SetBool ("isOpen", true);
-			doorAnim.SetBool ("isOpen", true);
-			StartCoroutine(animationWait ());
-//			isOpen = true;
-		} else if (Input.GetKeyDown ("e") && hit && isOpen) {
-			water.rising = false;
-			anim.SetBool ("isOpen", false);
-			doorAnim.SetBool ("isOpen", false);
-			StartCoroutine(animationWait ());
-//			isOpen = false;
+		if (canUse) {
+			if (Input.GetKeyDown ("e") && hit && !isOpen) {
+				water.rising = true;
+				water.stop = false;
+				anim.SetBool ("isOpen", true);
+				doorAnim.SetBool ("isOpen", true);
+				StartCoroutine (animationWait ());
+			} else if (Input.GetKeyDown ("e") && hit && isOpen) {
+				water.rising = false;
+				anim.SetBool ("isOpen", false);
+				doorAnim.SetBool ("isOpen", false);
+				StartCoroutine (animationWait ());
+			}
 		}
 	}
 			
 	void OnGUI()
 	{
-		if (hit)
+		if (hit && canUse)
 			GUI.Box (new Rect( ((Screen.width / 2)-100) , Screen.height / 2, 200, 22), leverHitText);
+		else if(hit && !canUse)
+			GUI.Box (new Rect( ((Screen.width / 2)-100) , Screen.height / 2, 200, 22), "Close the other door");
 	}
 
 	IEnumerator animationWait(){
