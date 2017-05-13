@@ -39,6 +39,7 @@ GameObject:
   - component: {fileID: 4820649197324890}
   - component: {fileID: 33276579238899582}
   - component: {fileID: 23334457955674928}
+  - component: {fileID: 65776532293320896}
   m_Layer: 0
   m_Name: Bast
   m_TagString: Untagged
@@ -102,7 +103,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1046534595583318}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -14.56, y: -1.614, z: -4.1}
+  m_LocalPosition: {x: -14.56, y: -1.614, z: -3.94}
   m_LocalScale: {x: 0.015, y: 0.015, z: 0.015}
   m_Children: []
   m_Father: {fileID: 4746560918078010}
@@ -255,6 +256,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1396998155936330}
   m_Mesh: {fileID: 4300014, guid: 3fd1205d9a5f441d5ba0df6dcc8e4892, type: 3}
+--- !u!65 &65776532293320896
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1046534595583318}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 41.93579, y: 86.1549, z: 63.881702}
+  m_Center: {x: 858.1357, y: 42.353355, z: 72.045654}
 --- !u!65 &65829508948852174
 BoxCollider:
   m_ObjectHideFlags: 1
