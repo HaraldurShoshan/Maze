@@ -15,5 +15,8 @@ EditorBuildSettings:
     path: Assets/Start.unity
     guid: 623d55bbffc8642359fac68cc8a4ceca
   - enabled: 1
+    path: Assets/Intro.unity
+    guid: db234672ca5c74f4691636135fb8bc15
+  - enabled: 1
     path: Assets/FinalMaze.unity
     guid: 8b6f93dee90554444b0f0f81e8fc4c57
