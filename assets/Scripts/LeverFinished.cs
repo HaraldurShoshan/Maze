@@ -51,9 +51,9 @@ public class LeverFinished : MonoBehaviour {
 		}
 	}
 
-	void OnGUI()
-	{
-		if (hit && showGUI)
-			GUI.Box (new Rect(Screen.width / 2 , Screen.height / 2, 200, 22), leverHitText);
-	}
+//	void OnGUI()
+//	{
+//		if (hit && showGUI)
+//			GUI.Box (new Rect(Screen.width / 2 , Screen.height / 2, 200, 22), leverHitText);
+//	}
 }
