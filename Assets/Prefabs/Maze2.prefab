@@ -8672,7 +8672,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: d0d0b7f865e3a50448df4610cf2681dd, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.535
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -8681,7 +8681,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1.6496096
-  MaxDistance: 20
+  MaxDistance: 9
   Pan2D: 0
   rolloffMode: 1
   BypassEffects: 0
@@ -8752,7 +8752,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: d0d0b7f865e3a50448df4610cf2681dd, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.535
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -8761,7 +8761,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1.6496096
-  MaxDistance: 20
+  MaxDistance: 9
   Pan2D: 0
   rolloffMode: 1
   BypassEffects: 0
@@ -8832,7 +8832,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: d0d0b7f865e3a50448df4610cf2681dd, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.535
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -8841,7 +8841,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1.6496096
-  MaxDistance: 20
+  MaxDistance: 9
   Pan2D: 0
   rolloffMode: 1
   BypassEffects: 0
@@ -8912,7 +8912,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: d0d0b7f865e3a50448df4610cf2681dd, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.535
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -8921,7 +8921,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1.6496096
-  MaxDistance: 20
+  MaxDistance: 9
   Pan2D: 0
   rolloffMode: 1
   BypassEffects: 0
@@ -8992,7 +8992,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: d0d0b7f865e3a50448df4610cf2681dd, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.535
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -9001,7 +9001,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1.6496096
-  MaxDistance: 20
+  MaxDistance: 9
   Pan2D: 0
   rolloffMode: 1
   BypassEffects: 0

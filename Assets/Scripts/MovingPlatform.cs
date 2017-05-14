@@ -29,7 +29,7 @@ public class MovingPlatform : MonoBehaviour {
 	void Update () {
 		if (rising && !stop) 
 		{
-			speed = 0.005f;
+			speed = 0.035f;
 			transform.Translate (Vector3.up * speed * 1 * Time.deltaTime);
 		}
 
