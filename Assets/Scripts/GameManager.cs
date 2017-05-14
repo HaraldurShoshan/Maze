@@ -34,6 +34,12 @@ public class GameManager : MonoBehaviour {
 	public GameObject leverRoomBetween2;
 	public GameObject leverRoomBetween3;
 
+	public GameObject exitCollider;
+	public GameObject exitDoorBehind;
+	AudioSource doorAudio;
+
+	public Camera fpsCam;
+
 	// Use this for initialization
 	void Start () {
 		//		DontDestroyOnLoad(gameObject);
@@ -79,6 +85,15 @@ public class GameManager : MonoBehaviour {
 		if (platform.GetComponent<MovingPlatform> ().fadeToBlack) {
 			deathAlpha.alpha += (0.6f * Time.deltaTime);
 		}
+
+		if (exitCollider.GetComponent<ExitCollider> ().isFinished) {
+			platform.GetComponent<MovingPlatform> ().rising = false;
+			fpsCam.GetComponent<AudioSource> ().volume -= (0.004f * Time.deltaTime); 
+			exitDoorBehind.GetComponent<Animator> ().SetBool ("isOpen", true);
+			exitDoorBehind.GetComponent<AudioSource> ().Play ();
+			exitDoorBehind.GetComponent<LastDoor> ().finish = true;
+		}
+
 
 
 		Debug.Log (LevelCounter);

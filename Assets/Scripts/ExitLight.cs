@@ -28,11 +28,13 @@ public class ExitLight : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (hit) {
-			light.intensity += (5f * Time.deltaTime);
+			if (light.intensity < 30) {
+				light.intensity += (5f * Time.deltaTime);
+			}
 		}
 		if (unHit) {
 			if (light.intensity > 0f) {
-				light.intensity -= (5f * Time.deltaTime);
+				light.intensity -= (10f * Time.deltaTime);
 			}
 		}
 	}

@@ -26,6 +26,7 @@ TagManager:
   - Spawn
   - Spawn2
   - TorchText
+  - ExitLastCol
   layers:
   - Default
   - TransparentFX
