@@ -265,7 +265,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1529351895884960}
-  m_LocalRotation: {x: -0.047752403, y: 0.70549357, z: 0.7054915, w: 0.047752563}
+  m_LocalRotation: {x: -0.0477524, y: 0.70549357, z: 0.7054915, w: 0.04775256}
   m_LocalPosition: {x: 0.15879467, y: -0.17000002, z: 0.22747388}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -352,7 +352,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1087824782342048}
-  m_LocalRotation: {x: 0.047752403, y: -0.7054936, z: -0.70549154, w: 0.047752563}
+  m_LocalRotation: {x: 0.0477524, y: -0.7054936, z: -0.70549154, w: 0.04775256}
   m_LocalPosition: {x: 0.002, y: -0.011, z: 0.003}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -814,7 +814,7 @@ AudioSource:
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
-  DopplerLevel: 1
+  DopplerLevel: 0.5
   MinDistance: 1
   MaxDistance: 500
   Pan2D: 0
@@ -863,7 +863,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
