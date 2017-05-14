@@ -7,7 +7,6 @@ using UnityStandardAssets.Characters.FirstPerson;
 public class MovingPlatform : MonoBehaviour {
 
 	public AudioClip drowning;
-	public AudioClip waterSound;
 	AudioSource SoundSource;
 
 	public float speed;
@@ -52,7 +51,6 @@ public class MovingPlatform : MonoBehaviour {
 	{
 		if (other.gameObject.CompareTag ("Player")) 
 		{
-			SoundSource.PlayOneShot(waterSound, 0.005f);
 			moveDown = false;
 		}
 
